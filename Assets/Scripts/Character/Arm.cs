@@ -5,9 +5,11 @@ using UnityEngine;
 public class Arm : MonoBehaviour
 {
     public Sword sword;
+    public Character character;
     public bool isAttacking;
     
     private Animator m_animator;
+    private bool m_alreadyTouch;
 
     private Vector2 m_requireDirection;
     // Start is called before the first frame update
@@ -15,7 +17,14 @@ public class Arm : MonoBehaviour
     {
         sword.gameObject.SetActive( false);
     }
-
+    void OnEnable()
+    {
+        sword.OnHit += Hit;
+    }
+    void OnDisable()
+    {
+        sword.OnHit -= Hit;
+    }
     void Start()
     {
         
@@ -41,11 +50,22 @@ public class Arm : MonoBehaviour
     public void StopAttack()
     {
         isAttacking = false;
+        m_alreadyTouch = false;
     }
 
     public void Attack(Vector2 _direction)
     {
         m_animator.SetTrigger("Attack");
-        m_requireDirection = _direction;
+        m_animator.SetFloat("yInput", _direction.y);
+    }
+
+    public void Hit(Collider2D _other)
+    {
+        
+        if (!m_alreadyTouch)
+        {
+            character.AttackTouched();
+            m_alreadyTouch = true;
+        }
     }
 }

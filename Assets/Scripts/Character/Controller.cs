@@ -41,13 +41,13 @@ public class Controller : MonoBehaviour
     public void ReadJumpInput(InputAction.CallbackContext _context)
     {
         if (_context.performed)
-            OnJump();
+            OnJump?.Invoke();
     }
     
     
     public void ReadAttackInput(InputAction.CallbackContext _context)
     {
         if (_context.performed)
-            OnAttack();
+            OnAttack?.Invoke();
     }
 }
