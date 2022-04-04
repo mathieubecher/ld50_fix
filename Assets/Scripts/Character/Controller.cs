@@ -14,6 +14,9 @@ public class Controller : MonoBehaviour
     public delegate void Attack();
     public event Attack OnAttack;
     
+    public delegate void Interact();
+    public event Interact OnInteract;
+    
     [HideInInspector]
     public Vector2 moveInput;
 
@@ -44,10 +47,15 @@ public class Controller : MonoBehaviour
             OnJump?.Invoke();
     }
     
-    
     public void ReadAttackInput(InputAction.CallbackContext _context)
     {
         if (_context.performed)
             OnAttack?.Invoke();
+    }
+    
+    public void ReadInteractInput(InputAction.CallbackContext _context)
+    {
+        if (_context.performed)
+            OnInteract?.Invoke();
     }
 }

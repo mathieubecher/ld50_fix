@@ -5,11 +5,13 @@ using UnityEngine;
 public class Arm : MonoBehaviour
 {
     public Sword sword;
+    [HideInInspector]
     public Character character;
     public bool isAttacking;
     
     private Animator m_animator;
     private bool m_alreadyTouch;
+    private List<GameObject> m_touchedList;
 
     private Vector2 m_requireDirection;
     // Start is called before the first frame update
@@ -27,7 +29,7 @@ public class Arm : MonoBehaviour
     }
     void Start()
     {
-        
+        m_touchedList = new List<GameObject>();
         m_animator = GetComponent<Animator>();
     }
 
@@ -51,6 +53,7 @@ public class Arm : MonoBehaviour
     {
         isAttacking = false;
         m_alreadyTouch = false;
+        m_touchedList = new List<GameObject>();
     }
 
     public void Attack(Vector2 _direction)
@@ -58,10 +61,14 @@ public class Arm : MonoBehaviour
         m_animator.SetTrigger("Attack");
         m_animator.SetFloat("yInput", _direction.y);
     }
-
+    
     public void Hit(Collider2D _other)
     {
-        
+        if (!m_touchedList.Contains(_other.gameObject))
+        {
+            _other.gameObject.GetComponent<Hitable>().Hit(Vector3.right * character.transform.localScale.z);
+            m_touchedList.Add(_other.gameObject);
+        }
         if (!m_alreadyTouch)
         {
             character.AttackTouched();

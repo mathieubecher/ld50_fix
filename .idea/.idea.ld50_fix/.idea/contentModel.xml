@@ -12,15 +12,39 @@
             <e p="Character.cs" t="Include" />
             <e p="Controller.cs" t="Include" />
             <e p="LifeController.cs" t="Include" />
+            <e p="RespawnPoint.cs" t="Include" />
             <e p="Sword.cs" t="Include" />
           </e>
+          <e p="DestroyAtRestart.cs" t="Include" />
+          <e p="Dialog.cs" t="Include" />
           <e p="Effects" t="Include">
             <e p="TimeScale.cs" t="Include" />
           </e>
-          <e p="Head.cs" t="Include" />
-          <e p="Hydra.cs" t="Include" />
+          <e p="Enemy" t="Include">
+            <e p="DetectPlayer.cs" t="Include" />
+            <e p="Head.cs" t="Include" />
+            <e p="Hitable.cs" t="Include" />
+            <e p="Hydra.cs" t="Include" />
+            <e p="Mob.cs" t="Include" />
+            <e p="NeckRenderer.cs" t="Include" />
+          </e>
+          <e p="HeadAnimator" t="Include">
+            <e p="AttackState.cs" t="Include" />
+            <e p="HitState.cs" t="Include" />
+            <e p="IdleState.cs" t="Include" />
+            <e p="OriginState.cs" t="Include" />
+            <e p="RecoveryState.cs" t="Include" />
+            <e p="TouchState.cs" t="Include" />
+          </e>
           <e p="Inputs" t="Include">
             <e p="InputController.cs" t="Include" />
+          </e>
+          <e p="Interactible.cs" t="Include" />
+          <e p="UI" t="Include">
+            <e p="EndMenu.cs" t="Include" />
+            <e p="Lifebar.cs" t="Include" />
+            <e p="Restart.cs" t="Include" />
+            <e p="UIManager.cs" t="Include" />
           </e>
         </e>
       </e>

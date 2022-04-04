@@ -9,12 +9,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/NeckRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Sword.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Hydra.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Head.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/GridPaintPaletteClipboard.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/AD0A7939-8190-48A0-A161-F66558C98867/cd/650a3f16/Animator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/DetectPlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Arm.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/EndMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Head.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Controller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Lifebar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Restart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialog.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HeadAnimator/IdleState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HeadAnimator/OriginState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyAtRestart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactible.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HeadAnimator/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HeadAnimator/HitState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HeadAnimator/RecoveryState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Mob.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HeadAnimator/TouchState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -25,12 +46,36 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Sword.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HitController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Sword.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/TouchState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/OriginState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/HitState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DetectPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hydra.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NeckRenderer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Arm.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Hitable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Head.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Controller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Head.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Lifebar.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/NeckRenderer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/DetectPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/Restart.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/DestroyAtRestart.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/AttackState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/RecoveryState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/EndMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Mob.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interactible.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Dialog.cs" />
       </list>
     </option>
   </component>
@@ -39,6 +84,7 @@
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -65,7 +111,9 @@
       <workItem from="1648918051648" duration="4000" />
       <workItem from="1648919085817" duration="1400000" />
       <workItem from="1648920999471" duration="1137000" />
-      <workItem from="1648934432896" duration="10792000" />
+      <workItem from="1648934432896" duration="10998000" />
+      <workItem from="1648971481166" duration="32527000" />
+      <workItem from="1649018192870" duration="9540000" />
     </task>
     <servers />
   </component>

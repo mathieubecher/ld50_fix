@@ -12,6 +12,7 @@ public class Character : MonoBehaviour
     
     private Controller m_controller;
     private Rigidbody2D m_rigidBody;
+    private LifeController m_lifeController;
     
     private bool m_isOnGround = false;
     
@@ -34,6 +35,8 @@ public class Character : MonoBehaviour
     public float m_lossControlTime = 0.2f;
     public float m_invulnerableTime = 0.6f;
     
+    public Animator animator;
+    
     public bool canJumping{get{return m_jumpNumber < m_maxJump + 1;}}
     
     
@@ -41,19 +44,23 @@ public class Character : MonoBehaviour
     {
         m_rigidBody = GetComponent<Rigidbody2D>();
         m_controller = GetComponent<Controller>();
+        arm.character = this;
         
         m_controller.OnJump += ReceiveJumpInput;
         m_controller.OnAttack += ReceiveAttackInput;
+        Restart.OnReplay += Replay;
     }
     void OnDisable()
     {
         m_controller.OnJump -= ReceiveJumpInput;
         m_controller.OnAttack -= ReceiveAttackInput;
+        Restart.OnReplay -= Replay;
     }
     // Start is called before the first frame update
     void Start()
     {
         m_originGravityScale = m_rigidBody.gravityScale;
+        m_lifeController = GetComponent<LifeController>();
     }
 
     // Update is called once per frame
@@ -71,11 +78,9 @@ public class Character : MonoBehaviour
     {
         Vector2 move = m_controller.moveInput;
         move.y = 0f;
+
+        if (m_invulnerableTimer >= m_invulnerableTime - m_lossControlTime || m_lifeController.life <= 0) return;
         
-        if (m_invulnerableTimer >= m_invulnerableTime - m_lossControlTime)
-        {
-            
-        }
         else if (m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f))
         {
             m_rigidBody.velocity = move * m_speedGround + m_rigidBody.velocity.y * Vector2.up;
@@ -104,7 +109,9 @@ public class Character : MonoBehaviour
                 m_jumpTimer += Time.deltaTime;
             }
             m_rigidBody.velocity = desiredHorizontalSpeed * Vector2.right + desiredVerticalSpeed * Vector2.up;
+
         }
+        animator.SetFloat("speed", math.abs(m_rigidBody.velocity.x));
     }
 
 
@@ -166,15 +173,23 @@ public class Character : MonoBehaviour
     
     void ReceiveAttackInput()
     {
+        if (m_lifeController.life <= 0) return;
         arm.Attack(m_controller.armDirection);
     }
     
     void ReceiveJumpInput()
     {
-        //Debug.Log("Jump");
+        if (m_lifeController.life <= 0) return;
         if (m_isOnGround || (m_jumpNumber < m_maxJump && m_jumpTimer > 0.1f))
         {
             Jump();
         }
+    }
+    
+    
+    private void Replay()
+    {
+        transform.position = FindObjectOfType<RespawnPoint>().transform.position;
+        transform.rotation = Quaternion.identity;
     }
 }

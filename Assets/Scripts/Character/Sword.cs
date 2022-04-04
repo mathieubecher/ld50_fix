@@ -22,7 +22,6 @@ public class Sword : MonoBehaviour
     {
         if (_other.gameObject.layer == LayerMask.NameToLayer("Head"))
         {
-            _other.gameObject.GetComponent<Head>().Hit();
             OnHit(_other);
         }
         

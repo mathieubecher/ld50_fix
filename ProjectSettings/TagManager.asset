@@ -11,12 +11,12 @@ TagManager:
   - Head
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Character
+  - Hydra
+  - DetectPlayer
+  - DeadHead
+  - DeadHead2
+  - Interactible
   - 
   - 
   - 
@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3296764543
+    locked: 0
+  - name: Hydra
+    uniqueID: 3493377289
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FrontGround
+    uniqueID: 2986217107
     locked: 0
