@@ -6,6 +6,7 @@ public class Head : Hitable
 {
     
     private static int nbHeadSpawn = 0;
+    public static int deadHeadCount = 0;
     
     public int life = 2;
     private Animator m_animator;
@@ -60,6 +61,7 @@ public class Head : Hitable
             deadHeadInstance.GetComponent<Rigidbody2D>().velocity = (transform.position - hydra.neckPosition.position).normalized * 20.0f;
             Destroy(asset);
             Destroy(m_animator);
+            deadHeadCount++;
             GetComponent<Collider2D>().enabled = false;
 
         }

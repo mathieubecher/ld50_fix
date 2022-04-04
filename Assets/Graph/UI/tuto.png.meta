@@ -41,6 +41,15 @@ TextureImporter:
   - first:
       213: -6312306189109067774
     second: tuto_12
+  - first:
+      213: -9058569806842526825
+    second: tuto_13
+  - first:
+      213: -5184680398404674454
+    second: tuto_14
+  - first:
+      213: -7999580604704009489
+    second: tuto_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -145,8 +154,8 @@ TextureImporter:
       name: Move
       rect:
         serializedVersion: 2
-        x: 34
-        y: 355
+        x: 28
+        y: 470
         width: 184
         height: 75
       alignment: 0
@@ -166,8 +175,8 @@ TextureImporter:
       name: tuto_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 215
+        x: 33
+        y: 337
         width: 184
         height: 129
       alignment: 0
@@ -187,8 +196,8 @@ TextureImporter:
       name: tuto_2
       rect:
         serializedVersion: 2
-        x: 75
-        y: 125
+        x: 72
+        y: 253
         width: 112
         height: 67
       alignment: 0
@@ -208,8 +217,8 @@ TextureImporter:
       name: Jump
       rect:
         serializedVersion: 2
-        x: 231
-        y: 355
+        x: 226
+        y: 473
         width: 171
         height: 74
       alignment: 0
@@ -229,8 +238,8 @@ TextureImporter:
       name: Attack
       rect:
         serializedVersion: 2
-        x: 455
-        y: 354
+        x: 447
+        y: 474
         width: 189
         height: 79
       alignment: 0
@@ -250,8 +259,8 @@ TextureImporter:
       name: tuto_5
       rect:
         serializedVersion: 2
-        x: 685
-        y: 366
+        x: 687
+        y: 491
         width: 263
         height: 54
       alignment: 0
@@ -271,8 +280,8 @@ TextureImporter:
       name: tuto_6
       rect:
         serializedVersion: 2
-        x: 676
-        y: 214
+        x: 683
+        y: 341
         width: 270
         height: 151
       alignment: 0
@@ -292,8 +301,8 @@ TextureImporter:
       name: tuto_7
       rect:
         serializedVersion: 2
-        x: 733
-        y: 336
+        x: 731
+        y: 460
         width: 30
         height: 28
       alignment: 0
@@ -313,8 +322,8 @@ TextureImporter:
       name: tuto_8
       rect:
         serializedVersion: 2
-        x: 677
-        y: 49
+        x: 683
+        y: 187
         width: 269
         height: 153
       alignment: 0
@@ -334,12 +343,12 @@ TextureImporter:
       name: tuto_9
       rect:
         serializedVersion: 2
-        x: 228
-        y: 251
+        x: 226
+        y: 376
         width: 168
         height: 85
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -355,12 +364,12 @@ TextureImporter:
       name: tuto_10
       rect:
         serializedVersion: 2
-        x: 262
-        y: 103
+        x: 260
+        y: 228
         width: 131
         height: 114
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -376,12 +385,12 @@ TextureImporter:
       name: tuto_11
       rect:
         serializedVersion: 2
-        x: 467
-        y: 104
+        x: 468
+        y: 227
         width: 153
         height: 112
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -397,12 +406,12 @@ TextureImporter:
       name: tuto_12
       rect:
         serializedVersion: 2
-        x: 434
-        y: 222
+        x: 428
+        y: 348
         width: 218
         height: 120
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -410,6 +419,69 @@ TextureImporter:
       bones: []
       spriteID: 20087ac07fe2668a0800000000000000
       internalID: -6312306189109067774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tuto_13
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 114
+        width: 184
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 793821a41ce794280800000000000000
+      internalID: -9058569806842526825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tuto_14
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 115
+        width: 57
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6c9823b5a05c08b0800000000000000
+      internalID: -5184680398404674454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tuto_15
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 116
+        width: 74
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe25388d2d7cbf090800000000000000
+      internalID: -7999580604704009489
       vertices: []
       indices: 
       edges: []

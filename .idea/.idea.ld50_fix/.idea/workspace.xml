@@ -59,7 +59,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Controller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Lifebar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/NeckRenderer.cs" />
@@ -71,11 +70,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/RecoveryState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/EndMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Mob.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interactible.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Dialog.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Head.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/EndMenu.cs" />
       </list>
     </option>
   </component>
@@ -113,7 +113,8 @@
       <workItem from="1648920999471" duration="1137000" />
       <workItem from="1648934432896" duration="10998000" />
       <workItem from="1648971481166" duration="32527000" />
-      <workItem from="1649018192870" duration="9540000" />
+      <workItem from="1649018192870" duration="10324000" />
+      <workItem from="1649034941569" duration="3788000" />
     </task>
     <servers />
   </component>

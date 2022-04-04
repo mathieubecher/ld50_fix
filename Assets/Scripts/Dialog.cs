@@ -23,15 +23,18 @@ public class Dialog : Interactible
     }
     public override void Interact()
     {
-        Debug.Log("Interact");
+        //Debug.Log("Interact");
         m_currentDialogId++;
-        Destroy(m_currentDialog);
+        if(m_currentDialog) Destroy(m_currentDialog);
         if(m_currentDialogId < dialogs.Count) m_currentDialog = Instantiate(dialogs[m_currentDialogId], baseDialogPoint);
     }
 
     public override void EnterTriggerZone()
     {
         base.EnterTriggerZone();
+        if(m_currentDialogId >= dialogs.Count) return;
+        
+        if(m_currentDialog) Destroy(m_currentDialog);
         m_currentDialog = Instantiate(dialogs[m_currentDialogId], baseDialogPoint);
 
     }
