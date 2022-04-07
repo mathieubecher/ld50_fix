@@ -42,7 +42,7 @@ public class Hydra : MonoBehaviour
                 m_nbHead++;
                 if (m_nbHeadToSpwan > 1.0f)
                 {
-                    m_nextTimer = Random.value * spawnSpeed;
+                    m_nextTimer =  0.2f + Random.value * spawnSpeed;
                 }
             }
         }
@@ -53,7 +53,7 @@ public class Hydra : MonoBehaviour
         m_nbHead--;
         if (m_nextTimer <= 0.0f)
         {
-            m_nextTimer = Random.value * spawnSpeed;
+            m_nextTimer = 0.2f + Random.value * spawnSpeed;
         }
         m_nbHeadToSpwan += 1.2f;
     }
@@ -72,5 +72,7 @@ public class Hydra : MonoBehaviour
         m_nbHead = 0;
         m_nextTimer = 1.0f;
         m_nbHeadToSpwan = 1.8f;
+        Head.deadHeadCount = 0;
+        Head.headSpawnCount = 0;
     }
 }

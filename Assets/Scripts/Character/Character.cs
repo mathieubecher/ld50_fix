@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
 {
     public delegate void EventAttackTouched();
     public event EventAttackTouched OnAttackTouched;
+    public event EventAttackTouched OnAttackTouchedWall;
     public delegate void EventHit();
     public event EventHit OnHit;
     
@@ -34,8 +35,12 @@ public class Character : MonoBehaviour
     [Header("Hit")]
     public float m_lossControlTime = 0.2f;
     public float m_invulnerableTime = 0.6f;
+
+
+    public GameObject doubleJumpVFX;
     
-    public Animator animator;
+    [SerializeField]
+    private Animator m_animator;
     
     public bool canJumping{get{return m_jumpNumber < m_maxJump + 1;}}
     
@@ -79,6 +84,7 @@ public class Character : MonoBehaviour
         Vector2 move = m_controller.moveInput;
         move.y = 0f;
 
+        m_animator.SetBool("dead", m_lifeController.life <= 0);
         if (m_invulnerableTimer >= m_invulnerableTime - m_lossControlTime || m_lifeController.life <= 0) return;
         
         else if (m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f))
@@ -111,27 +117,28 @@ public class Character : MonoBehaviour
             m_rigidBody.velocity = desiredHorizontalSpeed * Vector2.right + desiredVerticalSpeed * Vector2.up;
 
         }
-        animator.SetFloat("speed", math.abs(m_rigidBody.velocity.x));
+        m_animator.SetFloat("speed", math.abs(m_rigidBody.velocity.x));
+        m_animator.SetBool("isOnGround", m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f));
     }
 
-
+    private List<Collider2D> m_grounds = new List<Collider2D>();
     void OnCollisionEnter2D(Collision2D _other)
     {
         m_isOnGround = false;
         foreach(var contact in _other.contacts)
         {
-            if (Vector2.Dot(Vector2.up, contact.normal) > 0.9f)
+            if (Vector2.Dot(Vector2.up, contact.normal) > 0.7f)
             {
-                
                 m_isOnGround = true;
                 m_isJumping = false;
                 m_hit = false;
+                
                 m_rigidBody.gravityScale = m_originGravityScale;
             }
         }
     }
 
-    void OnCollisionExit2D()
+    void OnCollisionExit2D(Collision2D _other)
     {
         m_isOnGround = false;
         m_jumpNumber = 1;
@@ -146,7 +153,7 @@ public class Character : MonoBehaviour
             m_isJumping = false;
             m_hit = true;
             
-            OnHit?.Invoke();
+            m_animator.SetTrigger("Hit");
 
             Vector2 forceDir = (transform.position - _other.gameObject.transform.position).normalized;
             forceDir.y = 1.0f;
@@ -154,21 +161,36 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void InvokeHit()
+    {
+        OnHit?.Invoke();
+    }
     public void AttackTouched()
     {
         if(!m_isOnGround)
             Jump(true);
-        
+
+        m_invulnerableTimer += 0.2f;
         OnAttackTouched?.Invoke();
+    }
+    public void AttackTouchedWall()
+    {
+        OnAttackTouchedWall?.Invoke();
     }
 
     private void Jump(bool reset = false)
     {
         if(reset) m_jumpNumber = 0;
+        else if (!m_isOnGround)
+        {
+            Instantiate(doubleJumpVFX, transform.position, Quaternion.identity);
+        }
         m_jumpNumber++;
         m_jumpTimer = 0f;
         m_isJumping = true;
         m_hit = false;
+        m_animator.SetBool("isOnGround", false);
+        m_animator.SetTrigger("Jump");
     }
     
     void ReceiveAttackInput()
@@ -192,4 +214,5 @@ public class Character : MonoBehaviour
         transform.position = FindObjectOfType<RespawnPoint>().transform.position;
         transform.rotation = Quaternion.identity;
     }
+    
 }

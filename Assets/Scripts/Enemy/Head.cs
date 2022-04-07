@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 public class Head : Hitable
 {
     
-    private static int nbHeadSpawn = 0;
+    public static int headSpawnCount = 0;
     public static int deadHeadCount = 0;
     
     public int life = 2;
@@ -24,9 +24,9 @@ public class Head : Hitable
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<LineRenderer>().sortingOrder = nbHeadSpawn * 2 + 1;
-        nbHeadSpawn++;
-        headAsset.sortingOrder = nbHeadSpawn * 2;
+        GetComponent<LineRenderer>().sortingOrder = headSpawnCount * 2 + 1;
+        headSpawnCount++;
+        headAsset.sortingOrder = headSpawnCount * 2;
             
         m_lifeTimer = 0f;
         
@@ -61,6 +61,11 @@ public class Head : Hitable
             deadHeadInstance.GetComponent<Rigidbody2D>().velocity = (transform.position - hydra.neckPosition.position).normalized * 20.0f;
             Destroy(asset);
             Destroy(m_animator);
+
+            foreach (var collider in GetComponents<Collider2D>())
+            {
+                Destroy(collider);
+            }
             deadHeadCount++;
             GetComponent<Collider2D>().enabled = false;
 
@@ -71,5 +76,10 @@ public class Head : Hitable
     public Vector3 GetVelocity()
     {
         return (transform.position - m_previousPos) / Time.deltaTime;
+    }
+
+    public void Spawn(GameObject _gameObject)
+    {
+        Instantiate(_gameObject, transform.position, transform.rotation);
     }
 }

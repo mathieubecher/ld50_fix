@@ -1,8 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.Mathematics;
 using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class NeckRenderer : MonoBehaviour
 {
@@ -78,7 +82,12 @@ public class NeckRenderer : MonoBehaviour
         Vector3 P0 = transform.position;
         m_distance = (P0 - P3).magnitude;
         Vector3 P2 = P3 + -m_hydra.neckPosition.right * m_baseDirectionWeight * m_distance;
-        Vector3 P1 = P0 + Vector3.right * m_headDirectionWeight * m_distance;
+        
+        Vector3 right = transform.right;
+        float maxAngle = 45f;
+        Vector3 maxDir = Quaternion.AngleAxis(maxAngle, Vector3.forward) * Vector3.right;
+        if(math.abs(right.y) > math.abs(maxDir.y)) right = new Vector3(maxDir.x, math.abs(maxDir.y) * math.sign(right.y), 0.0f);
+        Vector3 P1 = P0 + right * m_headDirectionWeight * m_distance;
         
         Vector3[] listPositions = new Vector3[nbPoint];
         for (int i = 0; i < nbPoint; ++i)

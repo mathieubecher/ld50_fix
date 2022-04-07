@@ -47,6 +47,7 @@ public class EndMenu : MonoBehaviour
             Dead();
             m_death = true;
         }
+
     }
     public void Dead()
     {
@@ -68,13 +69,21 @@ public class EndMenu : MonoBehaviour
     public void DrawScore()
     {
         int score = Head.deadHeadCount;
+        float screenRatio = Screen.width / 1920f;
         Vector3 refPos = beginScore.transform.position;
+        Vector3 addPos = Vector3.zero;
         for (int i = 0; i < score / 5; ++i)
         {
             GameObject five = Instantiate(fives[Random.Range(0,fives.Count)], panel.transform);
-            float width = five.GetComponent<RectTransform>().rect.width * Screen.width / 1920f;
-            five.transform.position = refPos + width / 2.0f * Vector3.right;
-            refPos.x += (width + 0.0f);
+            float width = five.GetComponent<RectTransform>().rect.width * screenRatio;
+            float height = five.GetComponent<RectTransform>().rect.height * screenRatio;
+            five.transform.position = refPos + addPos + width / 2.0f * Vector3.right;
+            addPos.x += (width + 0.0f);
+            if (addPos.x > 880f * screenRatio)
+            {
+                addPos.x = 0.0f;
+                addPos.y -= height;
+            }
             m_score.Add(five);
             
 
@@ -84,9 +93,15 @@ public class EndMenu : MonoBehaviour
         for (int i = 0; i < score; ++i)
         {
             GameObject one = Instantiate(ones[Random.Range(0,ones.Count)], panel.transform);
-            float width = one.GetComponent<RectTransform>().rect.width * Screen.width / 1920f;
-            one.transform.position = refPos + width / 2.0f * Vector3.right;
-            refPos.x += (width + 0.0f);
+            float width = one.GetComponent<RectTransform>().rect.width * screenRatio;
+            float height = one.GetComponent<RectTransform>().rect.height * screenRatio;
+            one.transform.position = refPos + addPos + width / 2.0f * Vector3.right;
+            addPos.x += (width + 0.0f);
+            if (addPos.x > 1160f * screenRatio)
+            {
+                addPos.x = 0.0f;
+                addPos.y -= height;
+            }
             m_score.Add(one);
 
         }

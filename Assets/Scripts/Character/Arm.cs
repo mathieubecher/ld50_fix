@@ -22,10 +22,12 @@ public class Arm : MonoBehaviour
     void OnEnable()
     {
         sword.OnHit += Hit;
+        sword.OnHitWall += HitWall;
     }
     void OnDisable()
     {
         sword.OnHit -= Hit;
+        sword.OnHitWall -= HitWall;
     }
     void Start()
     {
@@ -72,6 +74,14 @@ public class Arm : MonoBehaviour
         if (!m_alreadyTouch)
         {
             character.AttackTouched();
+            m_alreadyTouch = true;
+        }
+    }
+    public void HitWall()
+    {
+        if (!m_alreadyTouch)
+        {
+            character.AttackTouchedWall();
             m_alreadyTouch = true;
         }
     }

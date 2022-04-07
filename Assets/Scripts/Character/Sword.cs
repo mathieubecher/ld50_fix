@@ -7,6 +7,8 @@ public class Sword : MonoBehaviour
     
     public delegate void Hit(Collider2D _other);
     public event Hit OnHit;
+    public delegate void HitWall();
+    public event HitWall OnHitWall;
 
     void Start()
     {
@@ -20,10 +22,14 @@ public class Sword : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D _other)
     {
-        if (_other.gameObject.layer == LayerMask.NameToLayer("Head"))
+        Hitable hit;
+        if (_other.gameObject.TryGetComponent(out hit))
         {
             OnHit(_other);
         }
-        
+        else
+        {
+            OnHitWall();
+        }
     }
 }

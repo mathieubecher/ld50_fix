@@ -47,7 +47,7 @@ public class IdleState : StateMachineBehaviour
         Vector3 position = animator.transform.position;
         animator.ApplyBuiltinRootMotion();
         
-        Quaternion desiredRotation = math.abs(angle) < 70f? Quaternion.Euler(0f, 0f, angle) : Quaternion.identity;
+        Quaternion desiredRotation = angle > -120f && angle < 90f ? Quaternion.Euler(0f, 0f, angle) : Quaternion.identity;
         m_head.transform.rotation = Quaternion.Slerp(rotation, desiredRotation, slerpSpeed);
     }
 

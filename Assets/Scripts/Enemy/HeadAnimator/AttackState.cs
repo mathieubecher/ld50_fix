@@ -32,8 +32,10 @@ public class AttackState : StateMachineBehaviour
 
     void Touch(Collider2D _other)
     {
+        if (!m_animator) return;
+        
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
             _other.GetComponent<Character>().Hit(m_head);
-        m_animator.SetTrigger("Touch");
+        else m_animator.SetTrigger("Touch");
     }
 }
