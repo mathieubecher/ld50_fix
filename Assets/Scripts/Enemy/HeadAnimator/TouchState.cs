@@ -29,7 +29,7 @@ public class TouchState : StateMachineBehaviour
     {
         m_head.OnTouch -= Touch;
     }
-    void Touch(Collider2D _other)
+    void Touch(Collider2D _other, int _damage)
     {
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
             _other.GetComponent<Character>().Hit(m_head);

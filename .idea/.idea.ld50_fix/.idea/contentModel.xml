@@ -7,8 +7,10 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Graph" t="Include">
-          <e p="Grid" t="Include">
-            <e p="Grid.cs" t="Include" />
+          <e p="Environment" t="Include">
+            <e p="Grid" t="Include">
+              <e p="Grid.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Scripts" t="Include">
@@ -39,6 +41,7 @@
               <e p="TouchState.cs" t="Include" />
             </e>
             <e p="Hitable.cs" t="Include" />
+            <e p="HitBox.cs" t="Include" />
             <e p="Hydra.cs" t="Include" />
             <e p="Mob.cs" t="Include" />
             <e p="NeckRenderer.cs" t="Include" />

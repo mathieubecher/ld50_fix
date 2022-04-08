@@ -28,14 +28,17 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyAtRestart.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactible.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/RecoveryState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/TouchState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/TelegraphTrail.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/HitState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Mob.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Graph/Grid/Grid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyTimer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/IdleState.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -55,7 +58,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Hitable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Controller.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/Lifebar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/DetectPlayer.cs" />
@@ -71,17 +73,22 @@
         <option value="$PROJECT_DIR$/Assets/Graph/Grid.cs" />
         <option value="$PROJECT_DIR$/Assets/Graph/Grid/Grid.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/NeckRenderer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Sword.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Arm.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/TelegraphTrail.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/IdleState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/AttackState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Body.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Sword.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Arm.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/AttackState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/TouchState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/RecoveryState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/IdleState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Head.cs" />
       </list>
     </option>
   </component>
@@ -127,6 +134,8 @@
       <workItem from="1649268018951" duration="13511000" />
       <workItem from="1649284576393" duration="5000" />
       <workItem from="1649357674327" duration="595000" />
+      <workItem from="1649443179021" duration="897000" />
+      <workItem from="1649444260360" duration="7339000" />
     </task>
     <servers />
   </component>

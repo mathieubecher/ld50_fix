@@ -30,7 +30,7 @@ public class AttackState : StateMachineBehaviour
         m_head.OnTouch -= Touch;
     }
 
-    void Touch(Collider2D _other)
+    void Touch(Collider2D _other, int _damage)
     {
         if (!m_animator) return;
         

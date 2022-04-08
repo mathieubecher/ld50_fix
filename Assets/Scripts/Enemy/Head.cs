@@ -53,24 +53,24 @@ public class Head : Hitable
     
     public override void Hit(Vector3 _direction)
     {
-        life--;
-        if (life <= 0)
+        base.Hit(_direction);
+        if(m_life <= 0) m_animator.SetTrigger("Hit");
+    }
+
+    public override void Dead()
+    {
+        hydra.CreateHead();
+        var deadHeadInstance = Instantiate(Random.value > 0.5f?deadHead : deadHead2, transform.position, transform.rotation);
+        deadHeadInstance.GetComponent<Rigidbody2D>().velocity = (transform.position - hydra.neckPosition.position).normalized * 20.0f;
+        Destroy(asset);
+        Destroy(m_animator);
+
+        foreach (var collider in GetComponents<Collider2D>())
         {
-            hydra.CreateHead();
-            var deadHeadInstance = Instantiate(Random.value > 0.5f?deadHead : deadHead2, transform.position, transform.rotation);
-            deadHeadInstance.GetComponent<Rigidbody2D>().velocity = (transform.position - hydra.neckPosition.position).normalized * 20.0f;
-            Destroy(asset);
-            Destroy(m_animator);
-
-            foreach (var collider in GetComponents<Collider2D>())
-            {
-                Destroy(collider);
-            }
-            deadHeadCount++;
-            GetComponent<Collider2D>().enabled = false;
-
+            Destroy(collider);
         }
-        else m_animator.SetTrigger("Hit");
+        deadHeadCount++;
+        GetComponent<Collider2D>().enabled = false;
     }
 
     public Vector3 GetVelocity()

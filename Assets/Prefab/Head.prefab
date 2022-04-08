@@ -239,6 +239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d826664b97e2d41bbd97659d809698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_canTouch: 0
+  m_life: 1
+  m_damage: 1
   life: 2
   hydra: {fileID: 0}
   deadHead: {fileID: 7210700386282236971, guid: d0b880204ff15bd48b2638b9e3c87e76, type: 3}
@@ -369,7 +372,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1e8f75e736a708c4f9d0c6b95918e335, type: 2}
+  - {fileID: 2100000, guid: 8f72cd35155f7924bab311a569a02e1f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

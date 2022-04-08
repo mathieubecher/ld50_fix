@@ -151,7 +151,7 @@ Material:
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _SPECULAR_COLOR: {r: 1, g: 1, b: 1, a: 0}
-    - _ScreenDimension: {r: 36.859604, g: 32.114613, b: 0, a: 0}
-    - _ScreenPosition: {r: -81.98404, g: -9.7, b: 0, a: 0}
+    - _ScreenDimension: {r: 42.645668, g: 24, b: 0, a: 0}
+    - _ScreenPosition: {r: -81.9584, g: -9.7, b: 0, a: 0}
     - _ScreenSize: {r: 0.044441223, g: 0.044445038, b: 0, a: 0}
   m_BuildTextureStacks: []

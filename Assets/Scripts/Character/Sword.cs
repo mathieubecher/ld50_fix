@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sword : MonoBehaviour
 {
     
-    public delegate void Hit(Collider2D _other);
+    public delegate void Hit(Hitable _other);
     public event Hit OnHit;
     public delegate void HitWall();
     public event HitWall OnHitWall;
@@ -22,10 +22,10 @@ public class Sword : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D _other)
     {
-        Hitable hit;
+        HitBox hit;
         if (_other.gameObject.TryGetComponent(out hit))
         {
-            OnHit(_other);
+            OnHit(hit.parent);
         }
         else
         {

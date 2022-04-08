@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Head
+  - HitPlayer
   - Water
   - UI
   - Character
@@ -41,7 +41,7 @@ TagManager:
   - name: Background
     uniqueID: 3296764543
     locked: 0
-  - name: Hydra
+  - name: Life
     uniqueID: 3493377289
     locked: 0
   - name: Default

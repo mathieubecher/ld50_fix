@@ -144,7 +144,7 @@ public class Character : MonoBehaviour
         m_jumpNumber = 1;
     }
 
-    public void Hit(Head _other)
+    public void Hit(Hitable _other)
     {
         if (m_invulnerableTimer < 0.0f)
         {
@@ -170,7 +170,7 @@ public class Character : MonoBehaviour
         if(!m_isOnGround)
             Jump(true);
 
-        m_invulnerableTimer += 0.2f;
+        m_invulnerableTimer = 0.2f;
         OnAttackTouched?.Invoke();
     }
     public void AttackTouchedWall()
