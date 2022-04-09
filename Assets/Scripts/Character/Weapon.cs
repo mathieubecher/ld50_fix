@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sword : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
-    
-    public delegate void Hit(Hitable _other);
+    public delegate void Hit(HitBox _other, int _damage);
     public event Hit OnHit;
     public delegate void HitWall();
     public event HitWall OnHitWall;
+
+    [SerializeField] 
+    private int m_damage = 1;
 
     void Start()
     {
@@ -19,17 +21,18 @@ public class Sword : MonoBehaviour
     {
         
     }
-
     void OnTriggerEnter2D(Collider2D _other)
     {
         HitBox hit;
         if (_other.gameObject.TryGetComponent(out hit))
         {
-            OnHit(hit.parent);
+            OnHit?.Invoke(hit, m_damage);
         }
         else
         {
-            OnHitWall();
+            OnHitWall?.Invoke();
         }
     }
+
+
 }

@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public delegate void EventAttackTouched();
-    public event EventAttackTouched OnAttackTouched;
-    public event EventAttackTouched OnAttackTouchedWall;
     public delegate void EventHit(int _damage);
     public event EventHit OnHit;
     
@@ -16,6 +13,7 @@ public class Character : MonoBehaviour
     private LifeController m_lifeController;
     
     private bool m_isOnGround = false;
+    private float m_timeInAir = 0f;
     
     private int m_jumpNumber = 0;
     private bool m_isJumping = false;
@@ -23,7 +21,7 @@ public class Character : MonoBehaviour
     private float m_originGravityScale = 0.0f;
     
     private bool m_hit = false;
-    private float m_invulnerableTimer = -1.0f;
+    private float m_invulnerableTimer = -1f;
 
     public Arm arm;
     public GameObject body;
@@ -34,7 +32,8 @@ public class Character : MonoBehaviour
     public int m_maxJump = 2;
     [Header("Hit")]
     public float m_lossControlTime = 0.2f;
-    public float m_invulnerableTime = 0.6f;
+    public float m_invulnerableOnHitTime = 0.6f;
+    private float m_invulnerableOnTouchedTime = 0.2f;
 
 
     public GameObject doubleJumpVFX;
@@ -85,15 +84,20 @@ public class Character : MonoBehaviour
         move.y = 0f;
 
         m_animator.SetBool("dead", m_lifeController.life <= 0);
-        if (m_invulnerableTimer >= m_invulnerableTime - m_lossControlTime || m_lifeController.life <= 0) return;
+        if (m_hit && (m_invulnerableTimer >= m_invulnerableOnHitTime - m_lossControlTime || m_lifeController.life <= 0)) return;
         
-        else if (m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f))
+        if (m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f))
         {
             m_rigidBody.velocity = move * m_speedGround + m_rigidBody.velocity.y * Vector2.up;
+            
             m_jumpNumber = 0;
+            m_timeInAir = 0;
         }
         else
         {
+            m_timeInAir += Time.deltaTime;
+            if(m_timeInAir > 0.2f && m_jumpNumber == 0) m_jumpNumber = 1;
+            
             float desiredHorizontalSpeed = move.x * m_speedGround;
             desiredHorizontalSpeed = math.lerp(m_rigidBody.velocity.x, desiredHorizontalSpeed, m_hit && math.abs(desiredHorizontalSpeed) < 0.1f ? 0f : m_airControl.Evaluate(m_jumpTimer));
 
@@ -120,71 +124,6 @@ public class Character : MonoBehaviour
         m_animator.SetFloat("speed", math.abs(m_rigidBody.velocity.x));
         m_animator.SetBool("isOnGround", m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f));
     }
-
-    private List<Collider2D> m_grounds = new List<Collider2D>();
-    void OnCollisionEnter2D(Collision2D _other)
-    {
-        m_isOnGround = false;
-        foreach(var contact in _other.contacts)
-        {
-            if (Vector2.Dot(Vector2.up, contact.normal) > 0.7f)
-            {
-                m_isOnGround = true;
-                m_isJumping = false;
-                m_hit = false;
-                
-                m_rigidBody.gravityScale = m_originGravityScale;
-            }
-        }
-    }
-
-    void OnCollisionExit2D(Collision2D _other)
-    {
-        m_isOnGround = false;
-        m_jumpNumber = 1;
-    }
-
-    private int m_nextDamage = 0;
-    public bool Hit(Hitable _other, int _damage)
-    {
-        if (m_invulnerableTimer < 0.0f)
-        {
-            m_nextDamage = _damage;
-            
-            m_invulnerableTimer = m_invulnerableTime;
-            m_rigidBody.gravityScale = m_originGravityScale;
-            m_isJumping = false;
-            m_hit = true;
-            
-            m_animator.SetTrigger("Hit");
-            OnHit?.Invoke(m_nextDamage);
-
-            Vector2 forceDir = (transform.position - _other.gameObject.transform.position).normalized;
-            forceDir.y = 1.0f;
-            m_rigidBody.velocity = forceDir * 15.0f;
-
-            return true;
-        }
-
-        return false;
-    }
-
-    public void InvokeHit()
-    {
-    }
-    public void AttackTouched()
-    {
-        if(!m_isOnGround)
-            Jump(true);
-
-        m_invulnerableTimer = 0.2f;
-        OnAttackTouched?.Invoke();
-    }
-    public void AttackTouchedWall()
-    {
-        OnAttackTouchedWall?.Invoke();
-    }
-
     private void Jump(bool reset = false)
     {
         if(reset) m_jumpNumber = 0;
@@ -199,7 +138,71 @@ public class Character : MonoBehaviour
         m_animator.SetBool("isOnGround", false);
         m_animator.SetTrigger("Jump");
     }
+
+
+    private List<Collider2D> m_grounds = new List<Collider2D>();
+    void OnCollisionEnter2D(Collision2D _other)
+    {
+        m_isOnGround = false;
+        foreach(var contact in _other.contacts)
+        {
+            if (Vector2.Dot(Vector2.up, contact.normal) > 0.7f)
+            {
+                Debug.Log("Enter " + _other.gameObject.name);
+                m_grounds.Add(_other.collider);
+                m_isOnGround = true;
+                m_isJumping = false;
+                m_hit = false;
+                
+                m_rigidBody.gravityScale = m_originGravityScale;
+            }
+        }
+    }
+    void OnCollisionExit2D(Collision2D _other)
+    {
+        if (m_grounds.Contains(_other.collider))
+        {
+            Debug.Log("Exit " + _other.gameObject.name);
+            m_grounds.Remove(_other.collider);
+            m_isOnGround = m_grounds.Count > 0;
+        }
+    }
     
+    public bool Hit(Hitable _other, int _damage)
+    {
+        if (m_invulnerableTimer < 0.0f)
+        {
+            m_invulnerableTimer = m_invulnerableOnHitTime;
+            m_rigidBody.gravityScale = m_originGravityScale;
+            m_isJumping = false;
+            m_hit = true;
+            
+            m_animator.SetTrigger("Hit");
+            OnHit?.Invoke(_damage);
+
+            Vector2 forceDir = (transform.position - _other.gameObject.transform.position).normalized;
+            forceDir.y = 1.0f;
+            m_rigidBody.velocity = forceDir * 15.0f;
+
+            return true;
+        }
+
+        return false;
+    }
+    
+    public void AttackTouched()
+    {
+        if(!m_isOnGround)
+            Jump(true);
+
+        m_invulnerableTimer = m_invulnerableOnTouchedTime;
+    }
+    
+    public void AttackTouchedWall()
+    {
+        
+    }
+
     void ReceiveAttackInput()
     {
         if (m_lifeController.life <= 0) return;

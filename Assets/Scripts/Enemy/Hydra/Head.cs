@@ -50,9 +50,9 @@ public class Head : Hitable
     }
     
     
-    public override void Hit(Vector3 _direction)
+    public override void Hit(Arm _origin, Vector3 _direction, int _damage)
     {
-        base.Hit(_direction);
+        base.Hit(_origin, _direction, _damage);
         if(life > 0) m_animator.SetTrigger("Hit");
     }
 

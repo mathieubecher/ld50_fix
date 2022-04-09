@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class HitBox : MonoBehaviour
 {
-    [SerializeField]
     private Hitable m_parent;
-
     public Hitable parent {get => m_parent;}
+    
+    [SerializeField]
+    private float m_vulnerabilityRatio = 1.0f;
+    public float vulnerabilityRatio {get => m_vulnerabilityRatio;}
+
+
 
     void Awake()
     {

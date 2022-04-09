@@ -42,9 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1475276643577363507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3debd6e23c3eb8c47a8dd7203ac4c2c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 00f95ae1c318d1848bf3cb918d22d9d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_damage: 1
 --- !u!61 &965391699048796568
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8d23fb55bcd9cf4d879c94683d98a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sword: {fileID: 1905370695542022173}
+  m_weapon: {fileID: 1905370695542022173}
   character: {fileID: 5705197022043109238}
   isAttacking: 0
 --- !u!95 &4702918406168857764
@@ -522,7 +523,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   m_maxJump: 2
   m_lossControlTime: 0.2
-  m_invulnerableTime: 1
+  m_invulnerableOnHitTime: 0.6
   doubleJumpVFX: {fileID: 7784468677893579699, guid: 9bbc4d940667ad140b3527b7ee6efb67, type: 3}
   m_animator: {fileID: 6500215521078845278}
 --- !u!114 &2034197905158981692

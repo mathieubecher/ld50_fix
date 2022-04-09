@@ -1,37 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Arm : MonoBehaviour
 {
-    public Sword sword;
-    [HideInInspector]
+    [SerializeField]
+    private Weapon m_weapon;
+    
     public Character character;
     public bool isAttacking;
     
     private Animator m_animator;
     private bool m_alreadyTouch;
-    private List<Hitable> m_touchedList;
+    private List<HitBox> m_touchedList;
 
     private Vector2 m_requireDirection;
+    
+    public delegate void AttackPerformed();
+    public event AttackPerformed OnAttackPerformed;
     // Start is called before the first frame update
-    void Init()
-    {
-        sword.gameObject.SetActive( false);
-    }
+
     void OnEnable()
     {
-        sword.OnHit += Hit;
-        sword.OnHitWall += HitWall;
+        m_weapon.OnHit += Hit;
+        m_weapon.OnHitWall += HitWall;
     }
     void OnDisable()
     {
-        sword.OnHit -= Hit;
-        sword.OnHitWall -= HitWall;
+        m_weapon.OnHit -= Hit;
+        m_weapon.OnHitWall -= HitWall;
     }
+
+    void Init()
+    {
+        m_weapon.gameObject.SetActive( false);
+    }
+    
     void Start()
     {
-        m_touchedList = new List<Hitable>();
+        m_touchedList = new List<HitBox>();
         m_animator = GetComponent<Animator>();
     }
 
@@ -55,7 +63,8 @@ public class Arm : MonoBehaviour
     {
         isAttacking = false;
         m_alreadyTouch = false;
-        m_touchedList = new List<Hitable>();
+        m_touchedList = new List<HitBox>();
+        OnAttackPerformed?.Invoke();
     }
 
     public void Attack(Vector2 _direction)
@@ -64,17 +73,18 @@ public class Arm : MonoBehaviour
         m_animator.SetFloat("yInput", _direction.y);
     }   
     
-    public void Hit(Hitable _other)
+    public void Hit(HitBox _hitBox, int _damage)
     {
-        if (!m_touchedList.Contains(_other))
+        if (!m_touchedList.Contains(_hitBox))
         {
-            _other.Hit(Vector3.right * character.transform.localScale.z);
-            m_touchedList.Add(_other);
+            _hitBox.parent.Hit(this, _hitBox.transform.position - transform.position, (int)math.floor(_damage * _hitBox.vulnerabilityRatio));
+            m_touchedList.Add(_hitBox);
         }
         if (!m_alreadyTouch)
         {
             character.AttackTouched();
             m_alreadyTouch = true;
+            FindObjectOfType<TimeScale>().FreezeTime(0.1f);
         }
     }
     public void HitWall()
@@ -83,6 +93,7 @@ public class Arm : MonoBehaviour
         {
             character.AttackTouchedWall();
             m_alreadyTouch = true;
+            FindObjectOfType<TimeScale>().FreezeTime(0.05f);
         }
     }
 }

@@ -20,7 +20,7 @@
             <e p="Controller.cs" t="Include" />
             <e p="LifeController.cs" t="Include" />
             <e p="RespawnPoint.cs" t="Include" />
-            <e p="Sword.cs" t="Include" />
+            <e p="Weapon.cs" t="Include" />
           </e>
           <e p="DestroyAtRestart.cs" t="Include" />
           <e p="DestroyTimer.cs" t="Include" />
