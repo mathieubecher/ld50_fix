@@ -10,6 +10,8 @@ public class Hitable : MonoBehaviour
 
     [SerializeField] protected bool m_canTouch = false;
     [SerializeField] protected int m_life = 1;
+    public int life { get => m_life; }
+    
     [SerializeField] protected int m_damage = 1;
     // Start is called before the first frame update
     void Start()

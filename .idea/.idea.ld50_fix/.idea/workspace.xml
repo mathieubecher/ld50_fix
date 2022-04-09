@@ -78,7 +78,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Sword.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Arm.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/RecoveryState.cs" />
@@ -94,6 +93,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
         <option value="$PROJECT_DIR$/Assets/Graph/Creatures/CleanBase/States/MobIdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Graph/Creatures/CleanBase/States/MobRootMotionState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Head.cs" />
       </list>
     </option>
   </component>
@@ -141,7 +141,7 @@
       <workItem from="1649357674327" duration="595000" />
       <workItem from="1649443179021" duration="897000" />
       <workItem from="1649444260360" duration="7707000" />
-      <workItem from="1649493471942" duration="10409000" />
+      <workItem from="1649493471942" duration="10852000" />
     </task>
     <servers />
   </component>

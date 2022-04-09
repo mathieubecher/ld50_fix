@@ -17689,6 +17689,36 @@ CapsuleCollider2D:
   m_Offset: {x: 2.3524141, y: -3.3001618}
   m_Size: {x: 5.2048283, y: 7.133473}
   m_Direction: 0
+--- !u!1 &464452986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 464452987}
+  m_Layer: 0
+  m_Name: DialogPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &464452987
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464452986}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -19.165276, y: -0.8139579, z: -6.2190228}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &478113046
 GameObject:
   m_ObjectHideFlags: 0
@@ -18040,7 +18070,7 @@ Transform:
   - {fileID: 946789201}
   - {fileID: 1493071116}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &568087319
 Animator:
@@ -20237,7 +20267,7 @@ MonoBehaviour:
   - {fileID: 5209632634950005229, guid: c49b16d0affdcf7479cdbafd07a40c3a, type: 3}
   - {fileID: 7484369428223323017, guid: 2acc8a3606db2274ca65290b518fbbce, type: 3}
   - {fileID: 3840804297039125692, guid: 7700cb81045578347b22744c001622e9, type: 3}
-  baseDialogPoint: {fileID: 0}
+  baseDialogPoint: {fileID: 464452987}
 --- !u!58 &1559401493
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -20433,6 +20463,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1656971490}
   - component: {fileID: 1656971489}
+  - component: {fileID: 1656971491}
   - component: {fileID: 1656971488}
   - component: {fileID: 1656971492}
   m_Layer: 3
@@ -20488,6 +20519,19 @@ Transform:
   m_Father: {fileID: 1353184760}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1656971491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656971487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fac8ddab5e78d4e999defd4edc1b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_parent: {fileID: 0}
 --- !u!95 &1656971492
 Animator:
   serializedVersion: 3

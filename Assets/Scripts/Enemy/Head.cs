@@ -8,7 +8,6 @@ public class Head : Hitable
     public static int headSpawnCount = 0;
     public static int deadHeadCount = 0;
     
-    public int life = 2;
     private Animator m_animator;
     [HideInInspector]
     public Hydra hydra;
@@ -54,7 +53,7 @@ public class Head : Hitable
     public override void Hit(Vector3 _direction)
     {
         base.Hit(_direction);
-        if(m_life <= 0) m_animator.SetTrigger("Hit");
+        if(life > 0) m_animator.SetTrigger("Hit");
     }
 
     public override void Dead()
