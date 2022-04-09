@@ -30,7 +30,7 @@ public class IdleState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (!DetectPlayer.detectPlayer) return;
+        if (!m_head.hydra.detectePlayer) return;
         m_idleTimer -= Time.deltaTime;
         if(m_idleTimer < 0.0f) animator.SetTrigger("StatePerformed");
     }

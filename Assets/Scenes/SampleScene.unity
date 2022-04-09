@@ -17642,6 +17642,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5531a9aeef4e3c48b051601dad1a7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectPlayer: 0
+  enterPlayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 793561900}
+        m_TargetAssemblyTypeName: Hydra, Assembly-CSharp
+        m_MethodName: set_detectePlayer
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  exitPlayer:
+    m_PersistentCalls:
+      m_Calls: []
+  replay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 793561900}
+        m_TargetAssemblyTypeName: Hydra, Assembly-CSharp
+        m_MethodName: set_detectePlayer
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &398573100
 GameObject:
   m_ObjectHideFlags: 0
@@ -20501,7 +20535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f2265c630169eb4481ec44111b38b7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_canTouch: 0
+  m_canTouch: 1
   m_life: 1
   m_damage: 1
 --- !u!4 &1656971490

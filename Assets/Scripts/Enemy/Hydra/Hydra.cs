@@ -19,6 +19,8 @@ public class Hydra : MonoBehaviour
     public float minAngle = 90.0f;
     public float maxAngle = 190.0f;
     private int m_nbHead = 1;
+    private bool m_detectPlayer = false;
+    public bool detectePlayer { get => m_detectPlayer; set => m_detectPlayer = value; }
     
     void OnEnable()
     {

@@ -1,23 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DetectPlayer : MonoBehaviour
 {
-    public static bool detectPlayer;
+    public bool detectPlayer;
+
+    public UnityEvent enterPlayer;
+    public UnityEvent exitPlayer;
+    public UnityEvent replay;
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
-        
+        Restart.OnReplay += Replay;
     }
-    void OnTriggerEnter2D(Collider2D _other)
+    private void OnDisable()
+    {
+        Restart.OnReplay -= Replay;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D _other)
     {
         if (_other.isTrigger) return;
         detectPlayer = true;
+        enterPlayer?.Invoke();
+        
     }
 
-    void OnTriggerExit2D(Collider2D _other)
+    private void OnTriggerExit2D(Collider2D _other)
     {
         if (_other.isTrigger) return;
+        exitPlayer?.Invoke();
+        
+    }
+
+    private void Replay()
+    {
+        replay?.Invoke();
     }
 }
