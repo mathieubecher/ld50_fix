@@ -16,27 +16,25 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Arm.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/EndMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GlobalAnimCall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/Controller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Lifebar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Restart.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialog.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyAtRestart.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactible.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/RespawnPoint.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Graph/Environment/Grid/Grid.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/IdleState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Mob.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/Hydra.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Controller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Arm.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Sword.cs" />
@@ -87,6 +85,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/Hydra.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/DetectPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Graph/Environment/Grid/Grid.cs" />
       </list>
     </option>
   </component>
@@ -134,7 +133,7 @@
       <workItem from="1649357674327" duration="595000" />
       <workItem from="1649443179021" duration="897000" />
       <workItem from="1649444260360" duration="7707000" />
-      <workItem from="1649493471942" duration="12047000" />
+      <workItem from="1649493471942" duration="15207000" />
     </task>
     <servers />
   </component>

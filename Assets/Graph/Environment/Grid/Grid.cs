@@ -35,10 +35,13 @@ public class Grid : ScriptableRendererFeature
             CommandBuffer commandBuffer = CommandBufferPool.Get();
             
             commandBuffer.GetTemporaryRT(tempRenderTargerHandler.id, renderingData.cameraData.cameraTargetDescriptor);
-            Vector2 leftTopPos = Camera.main.ScreenToWorldPoint(Vector2.zero);
-            Vector2 RightBottomPos = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
-            material.SetVector("_ScreenPosition", leftTopPos);
-            material.SetVector("_ScreenDimension", RightBottomPos - leftTopPos);
+            if (Camera.main)
+            {
+                Vector2 leftTopPos = Camera.main.ScreenToWorldPoint(Vector2.zero);
+                Vector2 RightBottomPos = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+                material.SetVector("_ScreenPosition", leftTopPos);
+                material.SetVector("_ScreenDimension", RightBottomPos - leftTopPos);
+            }
             //Debug.Log(new Vector2(Screen.width, Screen.height));
             
             Blit(commandBuffer, source, tempRenderTargerHandler.Identifier(), material);

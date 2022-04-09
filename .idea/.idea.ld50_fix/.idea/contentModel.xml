@@ -24,7 +24,6 @@
           </e>
           <e p="DestroyAtRestart.cs" t="Include" />
           <e p="DestroyTimer.cs" t="Include" />
-          <e p="Dialog.cs" t="Include" />
           <e p="Effects" t="Include">
             <e p="TimeScale.cs" t="Include" />
           </e>
@@ -46,7 +45,6 @@
               <e p="NeckRenderer.cs" t="Include" />
               <e p="TelegraphTrail.cs" t="Include" />
             </e>
-            <e p="Mob.cs" t="Include" />
             <e p="MobStates" t="Include">
               <e p="MobRootMotionState.cs" t="Include" />
             </e>
@@ -55,7 +53,10 @@
           <e p="Inputs" t="Include">
             <e p="InputController.cs" t="Include" />
           </e>
-          <e p="Interactible.cs" t="Include" />
+          <e p="Interact" t="Include">
+            <e p="Dialog.cs" t="Include" />
+            <e p="Interactible.cs" t="Include" />
+          </e>
           <e p="UI" t="Include">
             <e p="EndMenu.cs" t="Include" />
             <e p="Lifebar.cs" t="Include" />
