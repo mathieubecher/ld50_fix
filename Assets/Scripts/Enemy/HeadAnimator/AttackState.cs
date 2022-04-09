@@ -35,7 +35,7 @@ public class AttackState : StateMachineBehaviour
         if (!m_animator) return;
         
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
-            _other.GetComponent<Character>().Hit(m_head);
+            _other.GetComponent<Character>().Hit(m_head, _damage);
         else m_animator.SetTrigger("Touch");
     }
 }

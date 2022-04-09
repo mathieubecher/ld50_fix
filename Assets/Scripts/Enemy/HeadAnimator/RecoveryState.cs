@@ -74,6 +74,6 @@ public class RecoveryState : StateMachineBehaviour
     void Touch(Collider2D _other, int _damage)
     {
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
-            _other.GetComponent<Character>().Hit(m_head);
+            _other.GetComponent<Character>().Hit(m_head, _damage);
     }
 }

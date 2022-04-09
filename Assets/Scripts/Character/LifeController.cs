@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class LifeController : MonoBehaviour
 {
     private Character m_character;
+    private int m_life = 5;
+    public int life => m_life;
     public delegate void CharacterTakeDamage(int life);
     public static event CharacterTakeDamage OnCharacterTakeDamage;
-    public int life = 5;
 
     private int m_startLife;
     // Start is called before the first frame update
@@ -29,15 +31,16 @@ public class LifeController : MonoBehaviour
         m_character.OnHit -= TakeDamage;
         Restart.OnReplay -= Replay;
     }
+    
     // Update is called once per frame
     void Update()
     {
         
     }
     
-    private void TakeDamage()
+    private void TakeDamage(int _damage)
     {
-        life--;
+        m_life = math.max(0, life - _damage);
         OnCharacterTakeDamage?.Invoke(life);
         if (life == 0)
         {
@@ -47,7 +50,7 @@ public class LifeController : MonoBehaviour
 
     private void Replay()
     {
-        life = m_startLife;
+        m_life = m_startLife;
         OnCharacterTakeDamage?.Invoke(life);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }

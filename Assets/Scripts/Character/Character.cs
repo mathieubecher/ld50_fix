@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
     public delegate void EventAttackTouched();
     public event EventAttackTouched OnAttackTouched;
     public event EventAttackTouched OnAttackTouchedWall;
-    public delegate void EventHit();
+    public delegate void EventHit(int _damage);
     public event EventHit OnHit;
     
     private Controller m_controller;
@@ -144,26 +144,33 @@ public class Character : MonoBehaviour
         m_jumpNumber = 1;
     }
 
-    public void Hit(Hitable _other)
+    private int m_nextDamage = 0;
+    public bool Hit(Hitable _other, int _damage)
     {
         if (m_invulnerableTimer < 0.0f)
         {
+            m_nextDamage = _damage;
+            
             m_invulnerableTimer = m_invulnerableTime;
             m_rigidBody.gravityScale = m_originGravityScale;
             m_isJumping = false;
             m_hit = true;
             
             m_animator.SetTrigger("Hit");
+            OnHit?.Invoke(m_nextDamage);
 
             Vector2 forceDir = (transform.position - _other.gameObject.transform.position).normalized;
             forceDir.y = 1.0f;
             m_rigidBody.velocity = forceDir * 15.0f;
+
+            return true;
         }
+
+        return false;
     }
 
     public void InvokeHit()
     {
-        OnHit?.Invoke();
     }
     public void AttackTouched()
     {
@@ -207,7 +214,6 @@ public class Character : MonoBehaviour
             Jump();
         }
     }
-    
     
     private void Replay()
     {

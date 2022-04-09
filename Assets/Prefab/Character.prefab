@@ -346,10 +346,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4420431562575213117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d56086efe75b794eb964f4736e207cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 862fe6829240cc14d8036502c2e9c684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_character: {fileID: 5705197022043109238}
 --- !u!212 &4637868394392469271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -538,7 +537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e23475675c65f4194832ac00170e29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
 --- !u!50 &5705197022043109002
 Rigidbody2D:
   serializedVersion: 4

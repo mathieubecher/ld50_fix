@@ -9,11 +9,11 @@ public class UIManager : MonoBehaviour
 
     void OnEnable()
     {
-        LifeController.OnCharacterTakeDamage += ReceiveDamage;
+        LifeController.OnCharacterTakeDamage += SetLife;
     }
     void OnDisable()
     {
-        LifeController.OnCharacterTakeDamage -= ReceiveDamage;
+        LifeController.OnCharacterTakeDamage -= SetLife;
     }
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
         
     }
 
-    void ReceiveDamage(int _life)
+    void SetLife(int _life)
     {
         lifeBar.SetLife(_life);
     }

@@ -1131,7 +1131,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.033333335
+  - time: 0
     functionName: Spawn
     data: 
     objectReferenceParameter: {fileID: 953407511822476057, guid: 60c3f94bab5d00e4e84d498556d41c9c, type: 3}
@@ -1139,9 +1139,9 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.05
-    functionName: InvokeHit
+    functionName: FreezeTime
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
+    floatParameter: 0.3
     intParameter: 0
     messageOptions: 0

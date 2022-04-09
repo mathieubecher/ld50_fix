@@ -7,6 +7,13 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Graph" t="Include">
+          <e p="Creatures" t="Include">
+            <e p="CleanBase" t="Include">
+              <e p="States" t="Include">
+                <e p="MobRootMotionState.cs" t="Include" />
+              </e>
+            </e>
+          </e>
           <e p="Environment" t="Include">
             <e p="Grid" t="Include">
               <e p="Grid.cs" t="Include" />
@@ -16,7 +23,6 @@
         <e p="Scripts" t="Include">
           <e p="Character" t="Include">
             <e p="Arm.cs" t="Include" />
-            <e p="Body.cs" t="Include" />
             <e p="Character.cs" t="Include" />
             <e p="Controller.cs" t="Include" />
             <e p="LifeController.cs" t="Include" />
@@ -47,6 +53,7 @@
             <e p="NeckRenderer.cs" t="Include" />
             <e p="TelegraphTrail.cs" t="Include" />
           </e>
+          <e p="GlobalAnimCall.cs" t="Include" />
           <e p="Inputs" t="Include">
             <e p="InputController.cs" t="Include" />
           </e>

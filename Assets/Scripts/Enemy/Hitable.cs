@@ -25,11 +25,9 @@ public class Hitable : MonoBehaviour
 
     public virtual void Hit(Vector3 _direction)
     {
-        Debug.Log("Hit "+ gameObject.name);
         m_life--;
         if (m_life <= 0)
         {
-            Debug.Log("Dead "+ gameObject.name);
             Dead();
         }
     }
@@ -53,8 +51,13 @@ public class Hitable : MonoBehaviour
     protected virtual void ReadTouchEvent(Collider2D _other)
     {
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
-            _other.GetComponent<Character>().Hit(this);
+            _other.GetComponent<Character>().Hit(this, m_damage);
         OnTouch?.Invoke(_other, m_damage);
+    }
+
+    public void SetCanTouch(bool _canTouch)
+    {
+        m_canTouch = _canTouch;
     }
     
 }

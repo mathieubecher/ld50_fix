@@ -22,5 +22,6 @@ public class HitBox : MonoBehaviour
         }
         if(!TryGetComponent<Collider2D>(out _)) Debug.LogWarning(gameObject.name +" Hitbox need at least one collider", gameObject);
 
+        gameObject.layer = LayerMask.NameToLayer("HitPlayer");
     }
 }
