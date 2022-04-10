@@ -37,7 +37,7 @@ MonoBehaviour:
   m_canTouchValueAtStart: 1
   m_applyRootPosition: 1
   m_applyRootRotation: 1
-  m_return: 0
+  m_return: 1
   m_speed: 2
   m_inertia: 0
 --- !u!1102 &-2594939485862006251

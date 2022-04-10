@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MobFollowTargetState : MobRootMotionState
@@ -8,9 +10,10 @@ public class MobFollowTargetState : MobRootMotionState
     private Rigidbody2D m_rigidBody;
     [Header("Follow")]
     [SerializeField] private bool m_return = true;
-    [SerializeField] private Transform m_returnBody;
     [SerializeField] private float m_speed = 5.0f;
     [SerializeField] private float m_inertia = 0.0f;
+
+    private Hitable m_hitable;
     
 
     private Transform m_target;
@@ -18,6 +21,7 @@ public class MobFollowTargetState : MobRootMotionState
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_rigidBody = animator.GetComponent<Rigidbody2D>();
+        m_hitable = animator.GetComponent<Hitable>();
         
         m_target = FindObjectOfType<Character>().transform;
         base.OnStateEnter(animator, stateInfo, layerIndex);
@@ -41,9 +45,26 @@ public class MobFollowTargetState : MobRootMotionState
     override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         base.OnStateMove(animator, stateInfo, layerIndex);
+        float TOLERANCE = 0.01f;
+        bool horizontal = math.abs(m_rigidBody.gravityScale) > TOLERANCE;
+            
+        Vector3 desiredDirection = Vector3.zero;
+        if(!horizontal) desiredDirection = (m_target.position - animator.transform.position).normalized;
+        else
+        {
+            desiredDirection = (m_target.position - animator.transform.position);
+            desiredDirection.y = 0.0f;
+            desiredDirection.Normalize();
+        }
 
-        Vector3 desiredVelocity = (m_target.position - animator.transform.position).normalized * m_speed;
-        m_rigidBody.velocity = desiredVelocity;
+        if (m_return && math.abs(m_target.position - animator.transform.position).x > 1f)
+        {
+            Vector3 scale = m_hitable.body.localScale;
+            scale.x = math.abs(scale.x) * math.sign(desiredDirection.x);
+            m_hitable.body.localScale = scale;
+        }
+        Debug.Log(horizontal);
+        m_rigidBody.velocity = desiredDirection * m_speed + (horizontal ? Vector3.up * m_rigidBody.velocity.y : Vector3.zero);
 
     }
 }

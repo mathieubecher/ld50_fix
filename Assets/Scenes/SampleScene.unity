@@ -20326,6 +20326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animator: {fileID: 0}
+  body: {fileID: 0}
   m_canHit: 0
   m_life: 1
   m_damage: 1

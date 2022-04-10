@@ -8,8 +8,9 @@ public class Hitable : MonoBehaviour
     public delegate void HitEvent(Collider2D _other, int _damage);
     public event HitEvent OnHit;
 
-    [SerializeField]
-    protected Animator m_animator;
+    [SerializeField] protected Animator m_animator;
+
+    public Transform body;
     
     private Arm m_attackOrigin;
     private List<HitInfo> m_hitInfos = new List<HitInfo>();
