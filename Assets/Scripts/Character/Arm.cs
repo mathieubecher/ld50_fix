@@ -65,6 +65,7 @@ public class Arm : MonoBehaviour
         m_alreadyTouch = false;
         m_touchedList = new List<HitBox>();
         OnAttackPerformed?.Invoke();
+        OnAttackPerformed = null;
     }
 
     public void Attack(Vector2 _direction)

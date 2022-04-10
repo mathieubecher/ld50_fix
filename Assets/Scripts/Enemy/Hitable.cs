@@ -5,25 +5,34 @@ using UnityEngine;
 
 public class Hitable : MonoBehaviour
 {
-    public delegate void Touch(Collider2D _other, int _damage);
+    public delegate void HitEvent(Collider2D _other, int _damage);
+    public event HitEvent OnHit;
 
-    public event Touch OnTouch;
+    [SerializeField]
+    protected Animator m_animator;
+    
+    private Arm m_attackOrigin;
+    private List<HitInfo> m_hitInfos = new List<HitInfo>();
 
-
-    [SerializeField] protected bool m_canTouch = false;
+    [SerializeField] protected bool m_canHit = false;
     [SerializeField] protected int m_life = 1;
+    [SerializeField] protected int m_damage = 1;
+    
+    [Header("Anim Triggers")]
+    [SerializeField] protected string m_triggerHit = "Hit";
+    [SerializeField] protected string m_triggerDamaged = "Damaged";
+    [SerializeField] protected string m_triggerDead = "Dead";
 
     public int life
     {
         get => m_life;
     }
 
-    [SerializeField] protected int m_damage = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        if(!m_animator) m_animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,17 +51,19 @@ public class Hitable : MonoBehaviour
         public Vector3 direction;
         public int damage;
     }
-
-    private Arm m_attackOrigin;
-    private List<HitInfo> m_hitInfos = new List<HitInfo>();
+    
     public virtual void Hit(Arm _attackOrigin, Vector3 _direction, int _damage)
     {
-        if(m_hitInfos.Count == 0) _attackOrigin.OnAttackPerformed += PerfomAttack;
-        m_attackOrigin = _attackOrigin;
+        if (m_hitInfos.Count == 0)
+        {
+            m_attackOrigin = _attackOrigin;
+            _attackOrigin.OnAttackPerformed += OriginAttackPerfomed;
+        }
         m_hitInfos.Add(new HitInfo(_direction, _damage));
     }
 
-    public void PerfomAttack()
+    
+    protected void OriginAttackPerfomed()
     {
         if (m_hitInfos.Count > 0)
         {
@@ -60,47 +71,60 @@ public class Hitable : MonoBehaviour
             foreach (HitInfo hitInfo in m_hitInfos)
             {
                 if (hitInfo.direction.magnitude < minDist.direction.magnitude) minDist = hitInfo;
+                OnDamaged();
             }
 
             m_life = math.max(0, m_life -= minDist.damage);
             if (m_life <= 0)
             {
-                Dead();
+                OnDead();
             }
             m_hitInfos = new List<HitInfo>();
         }
-
-        m_attackOrigin.OnAttackPerformed -= PerfomAttack;
-
     }
-    
-    
-    public virtual void Dead()
+
+    protected virtual void OnDamaged()
     {
-        Destroy(gameObject);
+        if (m_triggerDamaged != "")
+        {
+            m_animator.SetTrigger(m_triggerDamaged);
+        }
     }
+    
+    
+    protected virtual void OnDead()
+    {
+        if (m_triggerDead != "")
+        {
+            m_animator.SetTrigger(m_triggerDead);
+        }
+    }
+    
     
     void OnTriggerEnter2D(Collider2D _other)
     {
         if (!_other.isTrigger)
         {
-            if (m_canTouch)
+            if (m_canHit)
             {
-                ReadTouchEvent(_other);
+                ReadHitEvent(_other);
             }
         }
     }
 
-    protected virtual void ReadTouchEvent(Collider2D _other)
+    protected virtual void ReadHitEvent(Collider2D _other)
     {
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
             _other.GetComponent<Character>().Hit(this, m_damage);
-        OnTouch?.Invoke(_other, m_damage);
+        OnHit?.Invoke(_other, m_damage);
     }
 
-    public void SetCanTouch(bool _canTouch)
+    public void SetCanHitPlayer()
     {
-        m_canTouch = _canTouch;
+        m_canHit = true;
     }
-    
+    public void SetCantHitPlayer()
+    {
+        m_canHit = false;
+    }
 }

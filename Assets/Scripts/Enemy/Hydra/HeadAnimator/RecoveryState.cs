@@ -33,7 +33,7 @@ public class RecoveryState : StateMachineBehaviour
         m_recoveryPos = m_head.hydra.GetValidHeadPosition(m_head);
         
         m_animator = animator;
-        if(canHit) m_head.OnTouch += Touch;
+        if(canHit) m_head.OnHit += Hit;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -68,10 +68,10 @@ public class RecoveryState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(canHit) m_head.OnTouch -= Touch;
+        if(canHit) m_head.OnHit -= Hit;
     }
     
-    void Touch(Collider2D _other, int _damage)
+    void Hit(Collider2D _other, int _damage)
     {
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
             _other.GetComponent<Character>().Hit(m_head, _damage);

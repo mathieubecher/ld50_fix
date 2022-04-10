@@ -8,7 +8,6 @@ public class Head : Hitable
     public static int headSpawnCount = 0;
     public static int deadHeadCount = 0;
     
-    private Animator m_animator;
     [HideInInspector]
     public Hydra hydra;
     
@@ -56,7 +55,7 @@ public class Head : Hitable
         if(life > 0) m_animator.SetTrigger("Hit");
     }
 
-    public override void Dead()
+    protected override void OnDead()
     {
         hydra.CreateHead();
         var deadHeadInstance = Instantiate(Random.value > 0.5f?deadHead : deadHead2, transform.position, transform.rotation);

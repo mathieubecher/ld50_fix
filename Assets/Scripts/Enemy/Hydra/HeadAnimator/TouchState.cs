@@ -15,7 +15,7 @@ public class TouchState : StateMachineBehaviour
     {
         if(!m_head) m_head = animator.GetComponent<Head>();
         m_timer = m_duration;
-        m_head.OnTouch += Touch;
+        m_head.OnHit += Hit;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -27,9 +27,9 @@ public class TouchState : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        m_head.OnTouch -= Touch;
+        m_head.OnHit -= Hit;
     }
-    void Touch(Collider2D _other, int _damage)
+    void Hit(Collider2D _other, int _damage)
     {
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
             _other.GetComponent<Character>().Hit(m_head, _damage);

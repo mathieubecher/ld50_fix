@@ -27,4 +27,10 @@ public class GlobalAnimCall : MonoBehaviour
     {
         Instantiate(_gameObject, transform.position, transform.rotation);
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
+    
 }

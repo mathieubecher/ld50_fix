@@ -46,6 +46,7 @@
               <e p="TelegraphTrail.cs" t="Include" />
             </e>
             <e p="MobStates" t="Include">
+              <e p="MobFollowTargetState.cs" t="Include" />
               <e p="MobRootMotionState.cs" t="Include" />
             </e>
           </e>

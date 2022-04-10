@@ -72,6 +72,8 @@ public class Character : MonoBehaviour
     {
         if(m_invulnerableTimer >= 0.0f) m_invulnerableTimer -= Time.deltaTime;
        
+        if (m_lifeController.life <= 0) return;
+        
         Vector2 move = m_controller.moveInput;
         float direction = move.x;
         if (math.abs(direction) > 0.0f && !arm.isAttacking)
@@ -84,7 +86,7 @@ public class Character : MonoBehaviour
         move.y = 0f;
 
         m_animator.SetBool("dead", m_lifeController.life <= 0);
-        if (m_hit && (m_invulnerableTimer >= m_invulnerableOnHitTime - m_lossControlTime || m_lifeController.life <= 0)) return;
+        if ((m_hit && m_invulnerableTimer >= m_invulnerableOnHitTime - m_lossControlTime) || m_lifeController.life <= 0) return;
         
         if (m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f))
         {
