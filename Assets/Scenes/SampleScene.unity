@@ -17678,6 +17678,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  m_target: {fileID: 0}
 --- !u!1 &398573100
 GameObject:
   m_ObjectHideFlags: 0
@@ -20328,6 +20329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animator: {fileID: 0}
+  m_rigidbody: {fileID: 0}
   body: {fileID: 0}
   m_canHit: 0
   m_life: 1
@@ -21277,10 +21279,6 @@ PrefabInstance:
     - target: {fileID: 4061962690206105710, guid: 44b13992fb5503049846bd902f57982c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7900326463412899702, guid: 44b13992fb5503049846bd902f57982c, type: 3}
-      propertyPath: m_Layer
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44b13992fb5503049846bd902f57982c, type: 3}

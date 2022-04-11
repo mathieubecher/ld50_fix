@@ -18,7 +18,7 @@ public class DetectPlayer : MonoBehaviour
     public UnityEvent replay;
 
     private bool m_detectPlayer;
-    private Transform m_target;
+    public Transform m_target;
     // Start is called before the first frame update
     private void OnEnable()
     {

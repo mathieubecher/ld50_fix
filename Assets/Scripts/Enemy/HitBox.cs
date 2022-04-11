@@ -28,4 +28,13 @@ public class HitBox : MonoBehaviour
 
         gameObject.layer = LayerMask.NameToLayer("HitPlayer");
     }
+    
+    
+    void OnTriggerEnter2D(Collider2D _other)
+    {
+        if (!_other.isTrigger)
+        {
+            m_parent.ReadHitEvent(this, _other);
+        }
+    }
 }

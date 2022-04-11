@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animator: {fileID: 0}
+  m_rigidbody: {fileID: 0}
   body: {fileID: 5351034364088484066}
   m_canHit: 1
   m_life: 3
@@ -494,6 +495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animator: {fileID: 3625804721873942698}
   m_triggerTargetDistance: TargetDistance
+  m_exitDistance: 20
   enterPlayer:
     m_PersistentCalls:
       m_Calls: []
@@ -518,7 +520,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 11.154541
+  m_Radius: 9.855053
 --- !u!1 &7541838854442387638
 GameObject:
   m_ObjectHideFlags: 0

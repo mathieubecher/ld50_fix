@@ -79,20 +79,20 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Sword.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Arm.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GlobalAnimCall.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/AttackState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobRootMotionState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Dialog.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobFollowTargetState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Interactible.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/DetectPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobRootMotionState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/DetectPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobFollowTargetState.cs" />
       </list>
     </option>
   </component>
@@ -142,7 +142,7 @@
       <workItem from="1649444260360" duration="7707000" />
       <workItem from="1649493471942" duration="30071000" />
       <workItem from="1649583119602" duration="22628000" />
-      <workItem from="1649699740403" duration="3668000" />
+      <workItem from="1649699740403" duration="8390000" />
     </task>
     <servers />
   </component>

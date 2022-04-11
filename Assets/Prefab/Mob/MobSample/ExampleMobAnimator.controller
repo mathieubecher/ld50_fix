@@ -95,7 +95,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -1538343718728860687}
   m_StateMachineBehaviours:
-  - {fileID: 3550188274008256323}
+  - {fileID: 9041210766974133269}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -124,10 +124,10 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3501287435504999850}
-    m_Position: {x: 310, y: 10, z: 0}
+    m_Position: {x: 460, y: -90, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7023852270912368689}
-    m_Position: {x: 240, y: -100, z: 0}
+    m_Position: {x: 170, y: -120, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -6079485702191820325}
@@ -162,9 +162,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Hit
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: TargetDistance
+    m_EventTreshold: 10
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6773020218889714471}
   m_Solo: 0
@@ -211,6 +211,12 @@ AnimatorController:
   - m_Name: Dead
     m_Type: 9
     m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: TargetDistance
+    m_Type: 1
+    m_DefaultFloat: 50
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
@@ -264,21 +270,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &3550188274008256323
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71619ea54fd93b84c8208cb872634a16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_canTouchValueAtStart: 1
-  m_applyRootPosition: 1
-  m_applyRootRotation: 1
 --- !u!1109 &6977162610691148427
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -341,9 +332,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Hit
-    m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: TargetDistance
+    m_EventTreshold: 8
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -3501287435504999850}
   m_Solo: 0
@@ -358,3 +349,21 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &9041210766974133269
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f213c8bad9bb2a74b8d3f76aadfc03fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_canTouchValueAtStart: 1
+  m_applyRootPosition: 1
+  m_applyRootRotation: 1
+  m_return: 1
+  m_speed: 5
+  m_inertia: 0

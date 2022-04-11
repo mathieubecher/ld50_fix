@@ -9,6 +9,9 @@ public class Hitable : MonoBehaviour
     public event HitEvent OnHit;
 
     [SerializeField] protected Animator m_animator;
+    [SerializeField] protected Rigidbody2D m_rigidbody;
+
+    public Rigidbody2D rigidbody => m_rigidbody;
 
     public Transform body;
     
@@ -34,6 +37,7 @@ public class Hitable : MonoBehaviour
     void Start()
     {
         if(!m_animator) m_animator = GetComponent<Animator>();
+        if(!m_rigidbody) m_rigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -101,24 +105,13 @@ public class Hitable : MonoBehaviour
         }
     }
     
-    
-    void OnTriggerEnter2D(Collider2D _other)
-    {
-        if (!_other.isTrigger)
-        {
-            if (m_canHit)
-            {
-                ReadHitEvent(_other);
-            }
-        }
-    }
 
-    protected virtual void ReadHitEvent(Collider2D _other)
+    public virtual void ReadHitEvent(HitBox _hitbox, Collider2D _other)
     {
-        if (!_other.TryGetComponent<HitBox>(out _)) return;
         
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
             _other.GetComponent<Character>().Damaged(this, m_damage);
+        
         OnHit?.Invoke(_other, m_damage);
     }
 

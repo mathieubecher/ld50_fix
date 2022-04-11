@@ -9,9 +9,14 @@ public class MobRootMotionState : StateMachineBehaviour
     [Header("Root Motion")]
     [SerializeField] protected bool m_applyRootPosition = true;
     [SerializeField] protected bool m_applyRootRotation = true;
+    
+    private Hitable m_hitable;
+    private Rigidbody2D m_rigidBody;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        m_hitable = animator.GetComponent<Hitable>();
+        m_rigidBody = m_hitable.rigidbody;
         if(m_canTouchValueAtStart) animator.GetComponent<Hitable>().SetCanHitPlayer();
         else animator.GetComponent<Hitable>().SetCantHitPlayer();
     }
@@ -20,6 +25,7 @@ public class MobRootMotionState : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         
+        m_rigidBody.velocity = new Vector2(0.0f, m_rigidBody.gravityScale>0? m_rigidBody.velocity.y : 0.0f);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
