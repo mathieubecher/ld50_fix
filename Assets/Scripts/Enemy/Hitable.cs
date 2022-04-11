@@ -115,6 +115,8 @@ public class Hitable : MonoBehaviour
 
     protected virtual void ReadHitEvent(Collider2D _other)
     {
+        if (!_other.TryGetComponent<HitBox>(out _)) return;
+        
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
             _other.GetComponent<Character>().Damaged(this, m_damage);
         OnHit?.Invoke(_other, m_damage);

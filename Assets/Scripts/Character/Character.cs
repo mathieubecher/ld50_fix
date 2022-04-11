@@ -159,6 +159,12 @@ public class Character : MonoBehaviour
                 m_rigidBody.gravityScale = m_originGravityScale;
             }
         }
+
+        if (!m_isOnGround)
+        {
+            m_rigidBody.gravityScale = m_originGravityScale;
+            m_isJumping = false;
+        }
     }
     void OnCollisionExit2D(Collision2D _other)
     {
