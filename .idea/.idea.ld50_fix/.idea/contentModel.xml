@@ -57,6 +57,7 @@
           <e p="Interact" t="Include">
             <e p="Dialog.cs" t="Include" />
             <e p="Interactible.cs" t="Include" />
+            <e p="Item.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="EndMenu.cs" t="Include" />

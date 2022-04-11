@@ -23,6 +23,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Restart.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyAtRestart.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interact/Item.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/RespawnPoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Graph/Environment/Grid/Grid.cs" root0="FORCE_HIGHLIGHTING" />
@@ -34,14 +35,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/Head.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyTimer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interact/Dialog.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/Hydra.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interact/Interactible.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/HitState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/DetectPlayer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Hydra.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NeckRenderer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hitable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Head.cs" />
@@ -67,7 +67,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/RecoveryState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HeadAnimator/TouchState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Effects/GlobalAnimEvent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Body.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/GlobalAnimCall.cs" />
@@ -82,14 +81,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Weapon.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Arm.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GlobalAnimCall.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobRootMotionState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Dialog.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobFollowTargetState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Item.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Interactible.cs" />
       </list>
     </option>
   </component>
@@ -138,7 +141,8 @@
       <workItem from="1649443179021" duration="897000" />
       <workItem from="1649444260360" duration="7707000" />
       <workItem from="1649493471942" duration="30071000" />
-      <workItem from="1649583119602" duration="22412000" />
+      <workItem from="1649583119602" duration="22628000" />
+      <workItem from="1649699740403" duration="1956000" />
     </task>
     <servers />
   </component>

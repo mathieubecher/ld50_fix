@@ -31,14 +31,21 @@ public class Interactible : MonoBehaviour
     {
         if (_other.isTrigger) return;
         
-        EnterTriggerZone();
+        Character character;
+        if (_other.TryGetComponent(out character))
+        {
+            EnterTriggerZone(character);
+        }
     }
     
     void OnTriggerExit2D(Collider2D _other)
     {
         if (_other.isTrigger) return;
-
-        ExitTriggerZone();
+        
+        if (_other.TryGetComponent<Character>(out _))
+        {
+            ExitTriggerZone();
+        }
     }
 
     public virtual void Interact()
@@ -46,7 +53,7 @@ public class Interactible : MonoBehaviour
         Debug.Log("Interact");
     }
 
-    public virtual void EnterTriggerZone()
+    public virtual void EnterTriggerZone(Character _character)
     {
         m_enter = true;
         m_controller.OnInteract += Interact;

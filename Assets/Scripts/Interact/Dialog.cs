@@ -29,9 +29,9 @@ public class Dialog : Interactible
         if(m_currentDialogId < dialogs.Count) m_currentDialog = Instantiate(dialogs[m_currentDialogId], baseDialogPoint);
     }
 
-    public override void EnterTriggerZone()
+    public override void EnterTriggerZone(Character _character)
     {
-        base.EnterTriggerZone();
+        base.EnterTriggerZone(_character);
         if(m_currentDialogId >= dialogs.Count) return;
         
         if(m_currentDialog) Destroy(m_currentDialog);

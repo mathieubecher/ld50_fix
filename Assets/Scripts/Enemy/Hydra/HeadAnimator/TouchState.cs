@@ -32,6 +32,6 @@ public class TouchState : StateMachineBehaviour
     void Hit(Collider2D _other, int _damage)
     {
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
-            _other.GetComponent<Character>().Hit(m_head, _damage);
+            _other.GetComponent<Character>().Damaged(m_head, _damage);
     }
 }

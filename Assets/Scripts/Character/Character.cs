@@ -150,7 +150,7 @@ public class Character : MonoBehaviour
         {
             if (Vector2.Dot(Vector2.up, contact.normal) > 0.7f)
             {
-                Debug.Log("Enter " + _other.gameObject.name);
+                //Debug.Log("Enter " + _other.gameObject.name);
                 m_grounds.Add(_other.collider);
                 m_isOnGround = true;
                 m_isJumping = false;
@@ -164,13 +164,13 @@ public class Character : MonoBehaviour
     {
         if (m_grounds.Contains(_other.collider))
         {
-            Debug.Log("Exit " + _other.gameObject.name);
+            //Debug.Log("Exit " + _other.gameObject.name);
             m_grounds.Remove(_other.collider);
             m_isOnGround = m_grounds.Count > 0;
         }
     }
     
-    public bool Hit(Hitable _other, int _damage)
+    public bool Damaged(Hitable _other, int _damage)
     {
         if (m_invulnerableTimer < 0.0f)
         {

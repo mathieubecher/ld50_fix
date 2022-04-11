@@ -63,7 +63,6 @@ public class MobFollowTargetState : MobRootMotionState
             scale.x = math.abs(scale.x) * math.sign(desiredDirection.x);
             m_hitable.body.localScale = scale;
         }
-        Debug.Log(horizontal);
         m_rigidBody.velocity = desiredDirection * m_speed + (horizontal ? Vector3.up * m_rigidBody.velocity.y : Vector3.zero);
 
     }

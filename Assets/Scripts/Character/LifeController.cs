@@ -9,7 +9,7 @@ public class LifeController : MonoBehaviour
     private int m_life = 5;
     public int life => m_life;
     public delegate void CharacterTakeDamage(int life);
-    public static event CharacterTakeDamage OnCharacterTakeDamage;
+    public static event CharacterTakeDamage OnCharacterLifeChange;
 
     private int m_startLife;
     // Start is called before the first frame update
@@ -38,20 +38,22 @@ public class LifeController : MonoBehaviour
         
     }
     
-    private void TakeDamage(int _damage)
+    public void TakeDamage(int _damage)
     {
-        m_life = math.max(0, life - _damage);
-        OnCharacterTakeDamage?.Invoke(life);
+        m_life = math.clamp(m_life - _damage, 0, m_startLife);
+        Debug.Log(_damage);
+        OnCharacterLifeChange?.Invoke(life);
         if (life == 0)
         {
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         }
     }
+    
 
     private void Replay()
     {
         m_life = m_startLife;
-        OnCharacterTakeDamage?.Invoke(life);
+        OnCharacterLifeChange?.Invoke(life);
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
