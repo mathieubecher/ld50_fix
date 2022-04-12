@@ -31,6 +31,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobRootMotionState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobFollowTargetState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/IdleState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/Head.cs" root0="FORCE_HIGHLIGHTING" />
@@ -42,7 +43,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/NeckRenderer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Hitable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Head.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Controller.cs" />
@@ -85,14 +85,15 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Dialog.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Interactible.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobRootMotionState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/DetectPlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobRootMotionState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobFollowTargetState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" />
       </list>
     </option>
   </component>
@@ -142,7 +143,8 @@
       <workItem from="1649444260360" duration="7707000" />
       <workItem from="1649493471942" duration="30071000" />
       <workItem from="1649583119602" duration="22628000" />
-      <workItem from="1649699740403" duration="8390000" />
+      <workItem from="1649699740403" duration="8620000" />
+      <workItem from="1649801474463" duration="1183000" />
     </task>
     <servers />
   </component>

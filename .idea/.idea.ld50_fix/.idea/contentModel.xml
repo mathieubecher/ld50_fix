@@ -59,6 +59,7 @@
             <e p="Interactible.cs" t="Include" />
             <e p="Item.cs" t="Include" />
           </e>
+          <e p="Projectile.cs" t="Include" />
           <e p="UI" t="Include">
             <e p="EndMenu.cs" t="Include" />
             <e p="Lifebar.cs" t="Include" />

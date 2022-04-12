@@ -12,10 +12,6 @@ public class MobFollowTargetState : MobRootMotionState
     [SerializeField] private float m_speed = 5.0f;
     [SerializeField] private float m_inertia = 0.0f;
 
-    private Hitable m_hitable;
-    private Rigidbody2D m_rigidBody;
-    
-
     private Transform m_target;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -66,7 +62,6 @@ public class MobFollowTargetState : MobRootMotionState
             Debug.Log(scale);
             m_hitable.body.localScale = scale;
         }
-        Debug.Log(distance);
         if(distance > m_speed * Time.deltaTime)
             m_rigidBody.velocity = desiredDirection * m_speed + (horizontal ? Vector3.up * m_rigidBody.velocity.y : Vector3.zero);
         else

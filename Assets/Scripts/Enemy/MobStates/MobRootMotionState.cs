@@ -10,8 +10,8 @@ public class MobRootMotionState : StateMachineBehaviour
     [SerializeField] protected bool m_applyRootPosition = true;
     [SerializeField] protected bool m_applyRootRotation = true;
     
-    private Hitable m_hitable;
-    private Rigidbody2D m_rigidBody;
+    protected Hitable m_hitable;
+    protected Rigidbody2D m_rigidBody;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
