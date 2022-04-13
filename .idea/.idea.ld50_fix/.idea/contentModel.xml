@@ -49,6 +49,7 @@
               <e p="MobFollowTargetState.cs" t="Include" />
               <e p="MobRootMotionState.cs" t="Include" />
             </e>
+            <e p="OrphelinHitBox.cs" t="Include" />
           </e>
           <e p="GlobalAnimCall.cs" t="Include" />
           <e p="Inputs" t="Include">

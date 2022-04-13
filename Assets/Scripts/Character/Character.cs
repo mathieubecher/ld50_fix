@@ -176,7 +176,7 @@ public class Character : MonoBehaviour
         }
     }
     
-    public bool Damaged(Hitable _other, int _damage)
+    public bool Damaged(Transform _other, int _damage)
     {
         if (m_invulnerableTimer < 0.0f)
         {
@@ -188,7 +188,7 @@ public class Character : MonoBehaviour
             m_animator.SetTrigger("Hit");
             OnHit?.Invoke(_damage);
 
-            Vector2 forceDir = (transform.position - _other.gameObject.transform.position).normalized;
+            Vector2 forceDir = (transform.position - _other.position).normalized;
             forceDir.y = 1.0f;
             m_rigidBody.velocity = forceDir * 15.0f;
 

@@ -23,7 +23,6 @@ public class IdleState : StateMachineBehaviour
         if(!m_target) m_target = FindObjectOfType<Character>();
         
         m_animator = animator;
-        m_head.OnHit += Hit;
         m_idleTimer = math.lerp(idleMinDuration, idleMaxDuration, Random.value);
     }
 
@@ -51,15 +50,4 @@ public class IdleState : StateMachineBehaviour
         m_head.transform.rotation = Quaternion.Slerp(rotation, desiredRotation, slerpSpeed);
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        m_head.OnHit -= Hit;
-    }
-
-    void Hit(Collider2D _other, int _damage)
-    {
-        if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
-            _other.GetComponent<Character>().Damaged(m_head, _damage);
-    }
 }

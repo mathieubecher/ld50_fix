@@ -7,7 +7,6 @@ public class RecoveryState : StateMachineBehaviour
 {
     protected Head m_head;
     protected Animator m_animator;
-    protected Hydra m_hydra;
 
     private float timer;
     private Vector3 m_recoveryPos;
@@ -18,7 +17,6 @@ public class RecoveryState : StateMachineBehaviour
     [SerializeField]
     private AnimationCurve m_recoveryCurve;
     public float slerpSpeed = 0.05f;
-    public bool canHit = false ;
     
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -33,7 +31,6 @@ public class RecoveryState : StateMachineBehaviour
         m_recoveryPos = m_head.hydra.GetValidHeadPosition(m_head);
         
         m_animator = animator;
-        if(canHit) m_head.OnHit += Hit;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -65,15 +62,4 @@ public class RecoveryState : StateMachineBehaviour
         m_head.transform.rotation = Quaternion.Slerp(rotation, desiredRotation, slerpSpeed);
     }
     
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if(canHit) m_head.OnHit -= Hit;
-    }
-    
-    void Hit(Collider2D _other, int _damage)
-    {
-        if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
-            _other.GetComponent<Character>().Damaged(m_head, _damage);
-    }
 }

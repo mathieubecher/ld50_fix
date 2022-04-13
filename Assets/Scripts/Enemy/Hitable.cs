@@ -110,7 +110,7 @@ public class Hitable : MonoBehaviour
     {
         
         if(_other.gameObject.layer == LayerMask.NameToLayer("Character"))
-            _other.GetComponent<Character>().Damaged(this, m_damage);
+            _other.GetComponent<Character>().Damaged(transform, m_damage);
         
         OnHit?.Invoke(_other, m_damage);
     }
