@@ -41,7 +41,6 @@ public class LifeController : MonoBehaviour
     public void TakeDamage(int _damage)
     {
         m_life = math.clamp(m_life - _damage, 0, m_startLife);
-        Debug.Log(_damage);
         OnCharacterLifeChange?.Invoke(life);
         if (life == 0)
         {

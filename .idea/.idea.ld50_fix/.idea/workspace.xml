@@ -89,14 +89,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobFollowTargetState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/TouchState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/AttackState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/RecoveryState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GlobalAnimCall.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/OrphelinHitBox.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Projectile.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hitable.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/OrphelinHitBox.cs" />
       </list>
     </option>
   </component>
@@ -148,7 +148,7 @@
       <workItem from="1649583119602" duration="22628000" />
       <workItem from="1649699740403" duration="8620000" />
       <workItem from="1649801474463" duration="1541000" />
-      <workItem from="1649869172337" duration="3213000" />
+      <workItem from="1649869172337" duration="4761000" />
     </task>
     <servers />
   </component>

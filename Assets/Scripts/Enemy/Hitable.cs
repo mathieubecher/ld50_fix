@@ -67,6 +67,19 @@ public class Hitable : MonoBehaviour
         m_hitInfos.Add(new HitInfo(_direction, _damage));
     }
 
+    public virtual void DirectHit( Vector3 _direction, int _damage)
+    {
+        if (m_hitInfos.Count == 0)
+        {
+            OnDamaged();
+            m_life = math.max(0, m_life -= _damage);
+            
+            if (m_life <= 0)
+            {
+                OnDead();
+            }
+        }
+    }
     
     protected void OriginAttackPerfomed()
     {

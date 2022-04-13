@@ -35,7 +35,6 @@ public class DetectPlayer : MonoBehaviour
         
         if (m_detectPlayer)
         {
-            Debug.Log("detect");
             float distance = (transform.position - m_target.position).magnitude;
             
             m_animator.SetFloat(m_triggerTargetDistance, (transform.position - m_target.position).magnitude);

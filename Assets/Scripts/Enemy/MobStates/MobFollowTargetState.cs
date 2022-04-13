@@ -59,7 +59,6 @@ public class MobFollowTargetState : MobRootMotionState
         {
             Vector3 scale = m_hitable.body.localScale;
             scale.x = math.abs(scale.x) * math.sign(desiredDirection.x);
-            Debug.Log(scale);
             m_hitable.body.localScale = scale;
         }
         if(distance > m_speed * Time.deltaTime)

@@ -21,7 +21,6 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (Math.Abs(m_rigidbody.velocity.magnitude) < TOLERANCE) return;
         float angle = Vector2.SignedAngle(Vector2.right, m_rigidbody.velocity);
         transform.localRotation = Quaternion.Euler(0f, 0f, angle);
