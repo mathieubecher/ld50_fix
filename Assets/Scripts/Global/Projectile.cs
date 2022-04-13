@@ -8,14 +8,12 @@ public class Projectile : MonoBehaviour
     private const float TOLERANCE = 0.01f;
     
     private Rigidbody2D m_rigidbody;
-    [SerializeField] private float m_speed = 20.0f;
     [SerializeField] private float m_waitTimeBeforeDestroy = 10.0f;
     
     // Start is called before the first frame update
     void Start()
     {
         m_rigidbody = GetComponent<Rigidbody2D>();
-        m_rigidbody.velocity = transform.right * m_speed;
     }
 
     // Update is called once per frame
