@@ -142,7 +142,7 @@ public class Character : MonoBehaviour
     }
 
 
-    private List<Collider2D> m_grounds = new List<Collider2D>();
+    public List<Collider2D> m_grounds = new List<Collider2D>();
     void OnCollisionEnter2D(Collision2D _other)
     {
         m_isOnGround = false;
@@ -151,7 +151,8 @@ public class Character : MonoBehaviour
             if (Vector2.Dot(Vector2.up, contact.normal) > 0.7f)
             {
                 //Debug.Log("Enter " + _other.gameObject.name);
-                m_grounds.Add(_other.collider);
+                if (!m_grounds.Contains(_other.collider))
+                    m_grounds.Add(_other.collider);
                 m_isOnGround = true;
                 m_isJumping = false;
                 m_hit = false;

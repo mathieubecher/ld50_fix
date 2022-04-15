@@ -81,7 +81,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobRootMotionState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Interact/Item.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/TouchState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/IdleState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/AttackState.cs" />
@@ -96,6 +95,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Global/Spawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Global/Projectile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Global/GlobalAnimCall.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
       </list>
     </option>
   </component>
@@ -149,6 +149,7 @@
       <workItem from="1649801474463" duration="1541000" />
       <workItem from="1649869172337" duration="5110000" />
       <workItem from="1649882983221" duration="3213000" />
+      <workItem from="1650036361790" duration="1881000" />
     </task>
     <servers />
   </component>
