@@ -23,17 +23,18 @@ public class Character : MonoBehaviour
     private bool m_hit = false;
     private float m_invulnerableTimer = -1f;
 
-    public Arm arm;
-    public GameObject body;
+    [SerializeField] private Arm arm;
+    [SerializeField] private GameObject body;
+    [SerializeField] private CapsuleCollider2D m_physicCollider;
     [Header("Navigation")]
-    public float m_speedGround = 5.0f;
-    public AnimationCurve m_jumpVerticalPosition;
-    public AnimationCurve m_airControl;
-    public int m_maxJump = 2;
+    [SerializeField] private float m_speedGround = 5.0f;
+    [SerializeField] private AnimationCurve m_jumpVerticalPosition;
+    [SerializeField] private AnimationCurve m_airControl;
+    [SerializeField] private int m_maxJump = 2;
     [Header("Hit")]
-    public float m_lossControlTime = 0.2f;
-    public float m_invulnerableOnHitTime = 0.6f;
-    private float m_invulnerableOnTouchedTime = 0.2f;
+    [SerializeField]  private float m_lossControlTime = 0.2f;
+    [SerializeField]  private float m_invulnerableOnHitTime = 0.6f;
+    [SerializeField]  private float m_invulnerableOnTouchedTime = 0.2f;
 
 
     public GameObject doubleJumpVFX;
@@ -87,10 +88,22 @@ public class Character : MonoBehaviour
 
         m_animator.SetBool("dead", m_lifeController.life <= 0);
         if ((m_hit && m_invulnerableTimer >= m_invulnerableOnHitTime - m_lossControlTime) || m_lifeController.life <= 0) return;
+
+        RaycastHit2D closerPoint;
+        bool hitPoint = GetGroundNomal(out closerPoint);
+        Debug.DrawLine(closerPoint.point, closerPoint.point + closerPoint.normal * 2.0f, Color.red, 0.0f);
         
-        if (m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f))
+        if (!m_isOnGround && hitPoint && (!m_isJumping || m_jumpTimer > 0.1f))
         {
-            m_rigidBody.velocity = move * m_speedGround + m_rigidBody.velocity.y * Vector2.up;
+            transform.position = new Vector2(transform.position.x, transform.position.y - 5.0f * Time.deltaTime);
+        }
+        
+        if (hitPoint && (!m_isJumping || m_jumpTimer > 0.1f))
+        {
+            Vector2 groundNomal = closerPoint.normal;
+            Vector2 right = -Vector2.Perpendicular(groundNomal);
+            
+            m_rigidBody.velocity = right * move.x * m_speedGround;
             
             m_jumpNumber = 0;
             m_timeInAir = 0;
@@ -126,6 +139,34 @@ public class Character : MonoBehaviour
         m_animator.SetFloat("speed", math.abs(m_rigidBody.velocity.x));
         m_animator.SetBool("isOnGround", m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f));
     }
+
+    private bool GetGroundNomal(out RaycastHit2D closerPoint)
+    {
+        Vector2 groundNomal = Vector2.up;
+        float distance = 0.8f;
+        closerPoint = new RaycastHit2D();
+        bool hit = false;
+        foreach (var result in Physics2D.CapsuleCastAll((Vector2) transform.position + m_physicCollider.offset, m_physicCollider.size, CapsuleDirection2D.Vertical, 0.0f, Vector2.down, distance))
+        {
+            if (Vector2.Dot(Vector2.up, result.normal) > 0.7f &&
+                result.collider.gameObject.layer == LayerMask.NameToLayer("Default"))
+            {
+                if (!hit)
+                {
+                    hit = true;
+                    closerPoint = result;
+                }
+                else if (closerPoint.distance > result.distance)
+                {
+                    closerPoint = result;
+                    groundNomal = result.normal;
+                }
+            }
+        }
+
+        return hit;
+    }
+
     private void Jump(bool reset = false)
     {
         if(reset) m_jumpNumber = 0;
