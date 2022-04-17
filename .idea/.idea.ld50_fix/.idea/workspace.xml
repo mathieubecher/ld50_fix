@@ -26,6 +26,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Lifebar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Restart.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Global/Projectile.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interact/InteractSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Effects/TimeScale.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interact/Item.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/HitBox.cs" root0="FORCE_HIGHLIGHTING" />
@@ -35,9 +36,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Character/LifeController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobRootMotionState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/MobStates/MobFollowTargetState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interact/InteractActions/InteractListAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/IdleState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interact/DialogText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/RecoveryState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interact/InteractActions/InteractDialogAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/HeadAnimator/AttackState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interact/InteractActions/InteractDefaultAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Global/GlobalAnimCall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Hydra/Head.cs" root0="FORCE_HIGHLIGHTING" />
@@ -48,11 +53,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/HeadAnimator/RecoveryState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/Mob.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Interactible.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Dialog.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/EndMenu.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/DestroyTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Graph/Grid.cs" />
         <option value="$PROJECT_DIR$/Assets/Graph/Grid/Grid.cs" />
@@ -99,6 +99,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Global/Projectile.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Global/GlobalAnimCall.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Character/Character.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/InteractActions/InteractDefaultAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/DialogText.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/InteractActions/InteractListAction.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/InteractSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Interact/InteractActions/InteractDialogAction.cs" />
       </list>
     </option>
   </component>
@@ -134,10 +139,10 @@
       <option name="RUNTIME_ARGUMENTS" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="26616">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="5092">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="26616" />
+      <option name="pid" value="5092" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -185,7 +190,11 @@
       <workItem from="1650048953708" duration="1898000" />
       <workItem from="1650050881882" duration="274000" />
       <workItem from="1650051177057" duration="640000" />
-      <workItem from="1650061299060" duration="737000" />
+      <workItem from="1650061299060" duration="1056000" />
+      <workItem from="1650097121889" duration="16525000" />
+      <workItem from="1650186375026" duration="8137000" />
+      <workItem from="1650213440172" duration="3126000" />
+      <workItem from="1650217507305" duration="10737000" />
     </task>
     <servers />
   </component>

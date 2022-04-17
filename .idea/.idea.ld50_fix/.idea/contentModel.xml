@@ -61,7 +61,14 @@
           </e>
           <e p="Interact" t="Include">
             <e p="Dialog.cs" t="Include" />
+            <e p="DialogText.cs" t="Include" />
+            <e p="InteractActions" t="Include">
+              <e p="InteractDefaultAction.cs" t="Include" />
+              <e p="InteractDialogAction.cs" t="Include" />
+              <e p="InteractListAction.cs" t="Include" />
+            </e>
             <e p="Interactible.cs" t="Include" />
+            <e p="InteractSystem.cs" t="Include" />
             <e p="Item.cs" t="Include" />
           </e>
           <e p="UI" t="Include">

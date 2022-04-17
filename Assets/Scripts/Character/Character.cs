@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    
+    private static readonly int DeadInput = Animator.StringToHash("dead");
+    private static readonly int IsOnGroundInput = Animator.StringToHash("isOnGround");
+    private static readonly int JumpInput = Animator.StringToHash("Jump");
+    private static readonly int SpeedInput = Animator.StringToHash("speed");
+    
     public delegate void EventHit(int _damage);
     public event EventHit OnHit;
     
@@ -86,16 +92,20 @@ public class Character : MonoBehaviour
         Vector2 move = m_controller.moveInput;
         move.y = 0f;
 
-        m_animator.SetBool("dead", m_lifeController.life <= 0);
+        m_animator.SetBool(DeadInput, m_lifeController.life <= 0);
         if ((m_hit && m_invulnerableTimer >= m_invulnerableOnHitTime - m_lossControlTime) || m_lifeController.life <= 0) return;
 
-        RaycastHit2D closerPoint;
-        bool hitPoint = GetGroundNomal(out closerPoint);
-        Debug.DrawLine(closerPoint.point, closerPoint.point + closerPoint.normal * 2.0f, Color.red, 0.0f);
+        RaycastHit2D closerPoint = new RaycastHit2D();
+        bool hitPoint = false;
+        if (m_isOnGround || m_timeInAir < 0.2f)
+        {
+            hitPoint = GetGroundNomal(out closerPoint);
+            Debug.DrawLine(closerPoint.point, closerPoint.point + closerPoint.normal * 2.0f, Color.red, 0.0f);
+        }
         
         if (!m_isOnGround && hitPoint && (!m_isJumping || m_jumpTimer > 0.1f))
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - 5.0f * Time.deltaTime);
+            //transform.position = new Vector2(transform.position.x, transform.position.y - 5.0f * Time.deltaTime);
         }
         
         if (hitPoint && (!m_isJumping || m_jumpTimer > 0.1f))
@@ -103,7 +113,7 @@ public class Character : MonoBehaviour
             Vector2 groundNomal = closerPoint.normal;
             Vector2 right = -Vector2.Perpendicular(groundNomal);
             
-            m_rigidBody.velocity = right * move.x * m_speedGround;
+            m_rigidBody.velocity = m_speedGround * move.x * right;
             
             m_jumpNumber = 0;
             m_timeInAir = 0;
@@ -136,13 +146,12 @@ public class Character : MonoBehaviour
             m_rigidBody.velocity = desiredHorizontalSpeed * Vector2.right + desiredVerticalSpeed * Vector2.up;
 
         }
-        m_animator.SetFloat("speed", math.abs(m_rigidBody.velocity.x));
-        m_animator.SetBool("isOnGround", m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f));
+        m_animator.SetFloat(SpeedInput, math.abs(m_rigidBody.velocity.x));
+        m_animator.SetBool(IsOnGroundInput, m_isOnGround && (!m_isJumping || m_jumpTimer > 0.1f));
     }
 
     private bool GetGroundNomal(out RaycastHit2D closerPoint)
     {
-        Vector2 groundNomal = Vector2.up;
         float distance = 0.8f;
         closerPoint = new RaycastHit2D();
         bool hit = false;
@@ -159,7 +168,6 @@ public class Character : MonoBehaviour
                 else if (closerPoint.distance > result.distance)
                 {
                     closerPoint = result;
-                    groundNomal = result.normal;
                 }
             }
         }
@@ -178,12 +186,14 @@ public class Character : MonoBehaviour
         m_jumpTimer = 0f;
         m_isJumping = true;
         m_hit = false;
-        m_animator.SetBool("isOnGround", false);
-        m_animator.SetTrigger("Jump");
+        m_animator.SetBool(IsOnGroundInput, false);
+        m_animator.SetTrigger(JumpInput);
     }
 
 
     public List<Collider2D> m_grounds = new List<Collider2D>();
+    private static readonly int Hit = Animator.StringToHash("Hit");
+
     void OnCollisionEnter2D(Collision2D _other)
     {
         m_isOnGround = false;
@@ -227,7 +237,7 @@ public class Character : MonoBehaviour
             m_isJumping = false;
             m_hit = true;
             
-            m_animator.SetTrigger("Hit");
+            m_animator.SetTrigger(Hit);
             OnHit?.Invoke(_damage);
 
             Vector2 forceDir = (transform.position - _other.position).normalized;
